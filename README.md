@@ -1,4 +1,4 @@
-### Workout Manager(가칭) v-1.0.0
+## Workout Manager(가칭) v-1.0.0
 
 ### Banner
 
@@ -29,7 +29,9 @@ Workout Manager를 소개합니다.
 
 ### Long Description
 
--Workout Manager는 당신의 운동 스타일을 추적 관리합니다. -현재 상황에 맞는 가장 효과적인 운동방법들을 추천합니다. -이용자는 과거의 운동 기록들을 확인하며 한층 더 발전한 모습을 확인할 수 있습니다
+- Workout Manager는 당신의 운동 스타일을 추적 관리합니다.
+- 현재 상황에 맞는 가장 효과적인 운동방법들을 추천합니다.
+- 이용자는 과거의 운동 기록들을 확인하며 한층 더 발전한 모습을 확인할 수 있습니다
 
 ### Table of Contents
 
