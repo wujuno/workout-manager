@@ -10,14 +10,12 @@
 - Must link to local image in current repository.
 - Must appear directly after the title.
 
-### Badges
-
 <p align='center'>
-    <img src="https://img.shields.io/badge/React-v17.0.1-blue?logo=React"/>
-    <img src="https://img.shields.io/badge/node.js-v14.15.1-green?logo=Node.js"/>
+    <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
+    <img src="https://img.shields.io/badge/node.js-v18.12.1-green?logo=Node.js"/>
     <img src="https://img.shields.io/badge/mongodb-v4.0.10-critical?logo=mongodb"/>
     <img src="https://img.shields.io/badge/mongoose-v5.10.15-critical?logo=mongodb"/>
-    <img src="https://img.shields.io/badge/Typescript-v4.0.5-blue?logo=typescript"/>
+    <img src="https://img.shields.io/badge/Typescript-v4.9.3-blue?logo=typescript"/>
     
 </p>
 
