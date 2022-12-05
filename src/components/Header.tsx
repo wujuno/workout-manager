@@ -10,6 +10,7 @@ const Wrapper = styled.nav`
 const Logo = styled.div`
     text-align:center;
     font-size:20px;
+    font-weight:700;
     padding: 5px 0;
 `;
 //items
