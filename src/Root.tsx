@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
+import Footer from "./components/Footer";
 import Header from "./components/Header"
 
 
@@ -63,13 +64,15 @@ a {
 `
 
 
+
 function Root() {
   return (
-    <>
-    <GlobalStyle/>
-    <Header/>
-    <Outlet/>
-    </>
+	<>
+		<GlobalStyle/>
+		<Header/>
+		<Outlet/>
+		<Footer/>
+	</>
   );
 }
 

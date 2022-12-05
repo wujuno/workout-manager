@@ -1,6 +1,30 @@
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+    width:100vw;
+    height: 100vh;
+    background-color: #00c6ad;
+    display: flex;
+    justify-content:center;
+    position: absolute;
+    top:0px;
+    z-index:-1
+`; 
+
+const Banner = styled.div`
+    margin-top:100px;
+    width:1020px;
+    height: 300px;
+    border: 2px solid tomato;
+`;
+
 function Home (){
     return (
-        <div>hi</div>
+        <Wrapper>
+            <Banner>
+                <span>Banner</span>
+            </Banner>
+        </Wrapper>
     )
 }
 

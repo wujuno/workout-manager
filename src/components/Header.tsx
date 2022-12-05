@@ -5,6 +5,7 @@ const Wrapper = styled.nav`
     display:grid;
     grid-template-columns: repeat(5,1fr);
     padding:25px 30px;
+    background-color:white;
 `;
 //logo
 const Logo = styled.div`
