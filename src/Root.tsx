@@ -1,5 +1,7 @@
+import { Outlet } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header"
+
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,300&display=swap');
@@ -60,15 +62,13 @@ a {
 }
 `
 
-const Home = styled.div`
-`;
 
 function Root() {
   return (
     <>
     <GlobalStyle/>
     <Header/>
-    <Home>Welcome!</Home>
+    <Outlet/>
     </>
   );
 }
