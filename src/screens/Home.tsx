@@ -22,7 +22,10 @@ function Home (){
     return (
         <Wrapper>
             <Banner>
-                <span>Banner</span>
+                <div>
+                    <p>안녕하세요 User님</p>
+                    <p>오늘 컨디션은 어떤가요?</p>
+                </div>
             </Banner>
         </Wrapper>
     )

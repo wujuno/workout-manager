@@ -10,6 +10,8 @@
 - Must link to local image in current repository.
 - Must appear directly after the title.
 
+* [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
+
 <p align='center'>
     <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
     <img src="https://img.shields.io/badge/node.js-v18.12.1-green?logo=Node.js"/>
@@ -19,13 +21,11 @@
     
 </p>
 
-### Description
+### 운동에 진심이고 체계적으로 하고 싶지만, 어려움이 있는 당신에게!
 
-운동에 진심이고 체계적으로 하고 싶지만, 어려움이 있는 당신에게!
-<br/>
-Workout Manager를 소개합니다.
+### Workout Manager를 소개합니다.
 
-### Long Description
+### Workout Manager는
 
 - Workout Manager는 당신의 운동 스타일을 추적 관리합니다.
 - 현재 상황에 맞는 가장 효과적인 운동방법들을 추천합니다.
