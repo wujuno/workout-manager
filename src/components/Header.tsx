@@ -24,7 +24,7 @@ const Item = styled.li`
     padding: 10px 0
 `;
 //identification
-const Variation = styled.div`
+const Validation = styled.div`
     display:grid;
     grid-template-columns: repeat(2,100px);
     grid-gap: 1rem;
@@ -52,14 +52,14 @@ function Header () {
                 <Link to="watch"><span>Watch</span></Link>
                 </Item>
             </Items>
-            <Variation>
+            <Validation>
                 <Link to="login">
                     <LoginIn>Log in</LoginIn>
                 </Link>
                 <Link to="signup">
                     <SignUp>Sign up</SignUp>
                 </Link>
-            </Variation>
+            </Validation>
         </Wrapper>
     )
 }
