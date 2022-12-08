@@ -18,6 +18,7 @@
     <img src="https://img.shields.io/badge/mongodb-v4.0.10-critical?logo=mongodb"/>
     <img src="https://img.shields.io/badge/mongoose-v5.10.15-critical?logo=mongodb"/>
     <img src="https://img.shields.io/badge/Typescript-v4.9.3-blue?logo=typescript"/>
+    <img src="https://img.shields.io/badge/Framer-v7.6.19-0055FF?logo=Framer"/>
     
 </p>
 
