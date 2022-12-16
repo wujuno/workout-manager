@@ -5,7 +5,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
     width:100vw;
     height: 100vh;
-    background-color: #d7cc7a;
     display: flex;
     justify-content:center;
     position: absolute;
@@ -44,28 +43,71 @@ const Items = styled(motion.div)`
     grid-template-columns:repeat(5,1fr);
     grid-row-gap:1rem;
     margin-top:15px;
-    background-color:white;
+    background-color: #ceefe6;
     border-radius:10px;
     padding:20px;
 
 `;
-const Item =styled.span`
+const Item =styled.button`
     place-self:center;
+`;
+
+const DidList = styled.div`
+    width:90%;
+    margin-top:20px;
 `;
 
 function Record (){
     const [pushVisible, setPushVisible] = useState(false);
     const [pullVisible, setPullVisible] = useState(false);
+    const [legsVisible, setLegsVisible] = useState(false);
+    const [shoulderVisible, setShoulderVisible] = useState(false);
+    const [absVisible, setAbsVisible] = useState(false);
+    const [date, setDate] = useState('');
+    const [item, setItem] = useState('');
     function handleSubmit (event:React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
+    }
+    function handleDate (event:React.FormEvent<HTMLInputElement>) {
+        setDate(event.currentTarget.value);
+    }
+    function handleItem (event:React.FormEvent<HTMLButtonElement>) {
+        setItem(event.currentTarget.value);
     }
     function handlePushItems () {
         setPushVisible(prev=>!prev);
         setPullVisible(false);
+        setLegsVisible(false);
+        setShoulderVisible(false);
+        setAbsVisible(false);
     }
     function handlePullItems () {
         setPullVisible(prev=>!prev);
         setPushVisible(false);
+        setLegsVisible(false);
+        setShoulderVisible(false);
+        setAbsVisible(false);
+    }
+    function handleLegsItems() {
+        setLegsVisible(prev =>!prev);
+        setPushVisible(false);
+        setPullVisible(false);
+        setShoulderVisible(false);
+        setAbsVisible(false);
+    }
+    function handleshoulderItems() {
+        setShoulderVisible(prev => !prev)
+        setPushVisible(false);
+        setPullVisible(false);
+        setLegsVisible(false);
+        setAbsVisible(false);
+    }
+    function handleabsItems() {
+        setAbsVisible(prev=>!prev);
+        setPushVisible(false);
+        setPullVisible(false);
+        setLegsVisible(false);
+        setShoulderVisible(false);
     }
     return (
         <Wrapper>
@@ -75,22 +117,22 @@ function Record (){
                 </Title>
                 <Form onSubmit={handleSubmit}>
                     <div>
-                    <input type="date" />
+                    <input type="date" onChange={handleDate} />
                     </div>
                     <div>
                         <button onClick={handlePushItems}>미는 운동</button>
                         <button onClick={handlePullItems}>당기는 운동</button>
-                        <button>하체 운동</button>
-                        <button>어깨 운동</button>
-                        <button>복근 운동</button>
+                        <button onClick={handleLegsItems}>하체 운동</button>
+                        <button onClick={handleshoulderItems}>어깨 운동</button>
+                        <button onClick={handleabsItems}>복근 운동</button>
                     </div>
                     {pushVisible ? <Items>
-                        <Item>플랫 벤치프레스</Item>
-                        <Item>인클라인 벤치프레스</Item>
-                        <Item>딥스</Item>
-                        <Item>케이블 플라이</Item>
-                        <Item>머신 플라이</Item>
-                        <Item>플랫벤치 덤벨프레스</Item>
+                        <Item onClick={handleItem} value="플랫 벤치프레스">플랫 벤치프레스</Item>
+                        <Item onClick={handleItem} value="인클라인 벤치프레스">인클라인 벤치프레스</Item>
+                        <Item onClick={handleItem} value="딥스">딥스</Item>
+                        <Item onClick={handleItem} value="케이블 플라이">케이블 플라이</Item>
+                        <Item onClick={handleItem} value="머신 플라이">머신 플라이</Item>
+                        <Item onClick={handleItem} value="플랫벤치 덤벨프레스">플랫벤치 덤벨프레스</Item>
                     </Items>  :null}
                     {pullVisible ? <Items>
                         <Item>턱걸이</Item>
@@ -100,6 +142,28 @@ function Record (){
                         <Item>시티드 케이블 로우</Item>
                         <Item>머신 로우</Item>
                     </Items>  :null}
+                    {legsVisible ? <Items>
+                        <Item>바벨 스쿼트</Item>
+                        <Item>파워 레그 프레스</Item>
+                        <Item>시티드 레그 컬</Item>
+                        <Item>리버스 레그 컬</Item>
+                        <Item>런지</Item>
+                    </Items>  :null}
+                    {shoulderVisible ? <Items>
+                        <Item>바벨 숄더 프레스</Item>
+                        <Item>밀리터리 프레스</Item>
+                        <Item>사이드 레터럴 레이즈</Item>
+                        <Item>리버스 펙 덱 플라이</Item>
+                        <Item>페이스 풀</Item>
+                    </Items>  :null}
+                    {absVisible ? <Items>
+                        <Item>리버스 크런치</Item>
+                        <Item>행잉 레그 레이즈</Item>
+                    </Items>  :null}
+                    <DidList>
+                        <p>{date}</p>
+                        {item ? <p>{item} 무게kg 횟수회 세트수회 쉬는시간초</p> : null}
+                    </DidList>
                 </Form>
             </Container>
         </Wrapper>
