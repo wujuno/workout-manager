@@ -65,6 +65,7 @@ function Record (){
     const [absVisible, setAbsVisible] = useState(false);
     const [date, setDate] = useState('');
     const [item, setItem] = useState('');
+    let arr:string[] = []
     function handleSubmit (event:React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
     }
@@ -73,6 +74,8 @@ function Record (){
     }
     function handleItem (event:React.FormEvent<HTMLButtonElement>) {
         setItem(event.currentTarget.value);
+        arr.push(event.currentTarget.value);
+        console.log(arr);
     }
     function handlePushItems () {
         setPushVisible(prev=>!prev);
