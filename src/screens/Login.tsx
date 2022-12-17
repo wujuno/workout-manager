@@ -19,7 +19,7 @@ const Banner = styled.div`
 `;
 
 const Title = styled.p`
-    font-size:45px;
+    font-size:40px;
     font-weight:700;
     display:flex;
     justify-content: space-between;
@@ -43,13 +43,24 @@ const LoginForm = styled.form`
         border-radius:4px;
         margin-bottom:10px;
     }
+    input:last-child {
+        margin-top:20px;
+        font-size:17px;
+        font-weight:500;
+    }
     
 
 `;
+interface ILoginF {
+    userId: string
+    password: string
+}
 
 function LogIn (){
-    const { register, handleSubmit } = useForm();
-    const onvalid = () => {}
+    const { register, handleSubmit } = useForm<ILoginF>();
+    const onvalid = (data:ILoginF) => {
+        console.log(data);
+    }
     return (
         <Wrapper>
             <Banner>
@@ -65,7 +76,7 @@ function LogIn (){
                     <input
                         placeholder="ID"
                         type="text"  
-                        {...register("userID", {required:true})}
+                        {...register("userId", {required:true})}
                          />
                     <input
                         placeholder="Password" 
