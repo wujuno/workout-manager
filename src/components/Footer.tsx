@@ -1,19 +1,25 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display:flex;
     justify-content: center;
-    align-itmes: center;
-    width:100%;
-    border: 3px solid red;
+    border: 2px solid white;
     position:absolute;
     bottom: 0px;
+    right:0;
+    left:0;
 
 `;
 
 function Footer () {
     return (
-        <Wrapper>&rarr;</Wrapper>
+        <Wrapper 
+            transition={{type:"keyframes"}}
+            initial={{ y: 0 }}
+            animate={{ y: -10 }}>
+            <span>개발중...🛠</span>
+        </Wrapper>
     )
 }
 

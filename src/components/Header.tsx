@@ -6,6 +6,7 @@ const Wrapper = styled.nav`
     grid-template-columns: repeat(5,1fr);
     padding:25px 30px;
     background-color:white;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 //logo
 const Logo = styled.div`
