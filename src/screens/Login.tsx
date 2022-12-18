@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Banner = styled.div`
     margin-top:300px;
-    width:760px;
+    width:640px;
     height: 300px;
 
 `;
@@ -23,6 +23,11 @@ const Title = styled.p`
     font-weight:700;
     display:flex;
     justify-content: space-between;
+    span: last-child {
+        font-size:25px;
+    }
+    align-items:end;
+    
 `;
 
 const FormContainer = styled.div`
@@ -65,8 +70,8 @@ function LogIn (){
             <Banner>
                 <div>
                     <Title>
-                        <span>Workout Manager</span>
                         <span>Login</span>
+                        <span>Workout Manager</span>
                     </Title>
                     <hr/>
                 </div>
