@@ -52,14 +52,13 @@ const LoginForm = styled.form`
 
 `;
 interface ILoginF {
-    userId: string
+    id: string
     password: string
 }
 
 function LogIn (){
     const { register, handleSubmit } = useForm<ILoginF>();
     const onvalid = (data:ILoginF) => {
-        console.log(data);
     }
     return (
         <Wrapper>
@@ -76,7 +75,7 @@ function LogIn (){
                     <input
                         placeholder="ID"
                         type="text"  
-                        {...register("userId", {required:true})}
+                        {...register("id", {required:true})}
                          />
                     <input
                         placeholder="Password" 
