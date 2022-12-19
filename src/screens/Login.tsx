@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
     width:100vw;

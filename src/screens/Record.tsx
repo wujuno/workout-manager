@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
     width:100vw;
@@ -56,6 +57,10 @@ const DidList = styled.div`
     width:90%;
     margin-top:20px;
 `;
+const Count = styled.input`
+    width:50px;
+`;
+
 
 function Record (){
     const [pushVisible, setPushVisible] = useState(false);
@@ -73,7 +78,7 @@ function Record (){
         setDate(event.currentTarget.value);
     }
     function handleItem (event:React.FormEvent<HTMLButtonElement>) {
-        setItem(event.currentTarget.value);
+        /* setItem(event.currentTarget.value); */
         arr.push(event.currentTarget.value);
         console.log(arr);
     }
@@ -165,8 +170,15 @@ function Record (){
                     </Items>  :null}
                     <DidList>
                         <p>{date}</p>
-                        {item ? <p>{item} 무게kg 횟수회 세트수회 쉬는시간초</p> : null}
+                        {item ? 
+                        <p>{item} -
+                        무게 : <Count type="number" placeholder="kg"/>| 
+                        횟수 : <Count type="number" placeholder="회"/>|
+                        세트수 : <Count type="number" placeholder="회"/>|
+                        쉬는시간 : <Count type="number" placeholder="초"/>
+                        </p> : null}
                     </DidList>
+                    <input type="submit" value="등록"/>
                 </Form>
             </Container>
         </Wrapper>
