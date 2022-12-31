@@ -1,81 +1,13 @@
 import { useReactiveVar } from "@apollo/client";
 import { Outlet } from "react-router-dom";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { darkModeVar } from "./apollo";
 import Footer from "./components/Footer";
 import Header from "./components/Header"
+import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 
 
-const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,300&display=swap');
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-* {
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  width: 100vw;
-  heigth: 100vh;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-`
-const lightTheme = {
-	fontColor: "#2c2c2c",
-	bgColor: "white",
-	accentColor:"black",
-  };
-  
-const darkTheme = {
-	fontColor: "white",
-	bgColor: "#2c2c2c",
-	accentColor:"white",
-};
-  
+
 
 
 function Root() {
@@ -83,7 +15,7 @@ function Root() {
   return (
 	<>
 		<ThemeProvider theme={darkMode ?darkTheme :lightTheme}>
-		<GlobalStyle/>
+		<GlobalStyles/>
 		<Header/>
 		<Outlet/>
 		<Footer/>

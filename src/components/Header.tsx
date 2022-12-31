@@ -6,11 +6,9 @@ import { darkModeVar, loggedInVar } from "../apollo";
 
 const Wrapper = styled.nav`
     display:grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     padding:25px 30px;
-    color: ${(props) => props.theme.fontColor};
-    background-color: ${(props)=> props.theme.bgColor};
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 //logo
 const Logo = styled.div`
@@ -21,7 +19,7 @@ const Logo = styled.div`
 `;
 //items
 const Items = styled.ul`
-    grid-column: 2 / span 3;
+    grid-column: 2 / span 2;
 `;
 const Item = styled.li`
     display:grid;
