@@ -42,6 +42,7 @@ const LoginIn = styled.div`
 
 
 function Header () {
+    const loggedIn = false
     return (
         <Wrapper>
             <Link to="/">
@@ -53,13 +54,20 @@ function Header () {
                 <Link to="watch"><span>Watch</span></Link>
                 </Item>
             </Items>
-            <Validation>
+            <Validation>              
+                {loggedIn 
+                ? <Link to="/">
+                    <SignUp>Log out</SignUp>
+                </Link>
+                : <>
                 <Link to="login">
                     <LoginIn>Log in</LoginIn>
-                </Link>
+                </Link> 
                 <Link to="signup">
                     <SignUp>Sign up</SignUp>
                 </Link>
+                </> 
+                }  
             </Validation>
         </Wrapper>
     )
