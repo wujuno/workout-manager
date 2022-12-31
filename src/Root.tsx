@@ -1,5 +1,7 @@
+import { useReactiveVar } from "@apollo/client";
 import { Outlet } from "react-router-dom";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { darkModeVar } from "./apollo";
 import Footer from "./components/Footer";
 import Header from "./components/Header"
 
@@ -62,16 +64,30 @@ a {
   color: inherit;
 }
 `
-
+const lightTheme = {
+	fontColor: "#2c2c2c",
+	bgColor: "white",
+	accentColor:"black",
+  };
+  
+const darkTheme = {
+	fontColor: "white",
+	bgColor: "#2c2c2c",
+	accentColor:"white",
+};
+  
 
 
 function Root() {
+	const darkMode = useReactiveVar(darkModeVar);
   return (
 	<>
+		<ThemeProvider theme={darkMode ?darkTheme :lightTheme}>
 		<GlobalStyle/>
 		<Header/>
 		<Outlet/>
 		<Footer/>
+		</ThemeProvider>
 	</>
   );
 }

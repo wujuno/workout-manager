@@ -6,6 +6,8 @@ const Wrapper = styled.div`
     height: 100vh;
     display: flex;
     justify-content:center;
+    background-color: ${(props)=> props.theme.bgColor};
+    color: ${(props) => props.theme.fontColor};
     position: absolute;
     top:0px;
     z-index:-1

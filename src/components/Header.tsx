@@ -1,13 +1,15 @@
 import { useReactiveVar } from "@apollo/client/react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { loggedInVar } from "../apollo";
+import { darkModeVar, loggedInVar } from "../apollo";
 
 const Wrapper = styled.nav`
     display:grid;
     grid-template-columns: repeat(5,1fr);
     padding:25px 30px;
-    background-color:white;
+    color: ${(props) => props.theme.fontColor};
+    background-color: ${(props)=> props.theme.bgColor};
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 //logo
@@ -29,13 +31,13 @@ const Item = styled.li`
 //identification
 const Validation = styled.div`
     display:grid;
-    grid-template-columns: repeat(2,100px);
+    grid-template-columns: repeat(3,100px);
     grid-gap: 1rem;
     text-align:center;
 `;
 const SignUp = styled.div`
-    background-color:black;
-    color:white;
+    background-color:${(props)=> props.theme.accentColor};
+    color:${(props)=> props.theme.bgColor};
     padding: 10px;
 `;
 const LoginIn = styled.div`
@@ -43,8 +45,15 @@ const LoginIn = styled.div`
 `;
 
 
+
 function Header () {
+    const [theme, setTheme] = useState(false);
     const isLoggedIn = useReactiveVar(loggedInVar);
+    const isDark = useReactiveVar(darkModeVar);
+    const themeHanddler = () => {
+            setTheme(prev => !prev)
+            darkModeVar(theme);
+    }
     return (
         <Wrapper>
             <Link to="/">
@@ -56,7 +65,8 @@ function Header () {
                 <Link to="watch"><span>Watch</span></Link>
                 </Item>
             </Items>
-            <Validation>              
+            <Validation>
+                <button onClick={themeHanddler}>{isDark ? "Light Mode" :"Dark Mode"}</button>    
                 {isLoggedIn 
                 ? <Link to="/">
                     <SignUp onClick={()=>loggedInVar(false)}>Log out</SignUp>
