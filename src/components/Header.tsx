@@ -1,5 +1,7 @@
+import { useReactiveVar } from "@apollo/client/react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { loggedInVar } from "../apollo";
 
 const Wrapper = styled.nav`
     display:grid;
@@ -42,7 +44,7 @@ const LoginIn = styled.div`
 
 
 function Header () {
-    const loggedIn = false
+    const isLoggedIn = useReactiveVar(loggedInVar);
     return (
         <Wrapper>
             <Link to="/">
@@ -55,9 +57,9 @@ function Header () {
                 </Item>
             </Items>
             <Validation>              
-                {loggedIn 
+                {isLoggedIn 
                 ? <Link to="/">
-                    <SignUp>Log out</SignUp>
+                    <SignUp onClick={()=>loggedInVar(false)}>Log out</SignUp>
                 </Link>
                 : <>
                 <Link to="login">

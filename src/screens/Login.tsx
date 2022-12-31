@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { loggedInVar } from "../apollo";
+import { useNavigate } from "react-router-dom";
+
 
 const Wrapper = styled.div`
     width:100vw;
@@ -63,6 +66,11 @@ interface ILoginF {
 
 function LogIn (){
     const { register, handleSubmit } = useForm<ILoginF>();
+    const navigate = useNavigate();
+    const loginHanddler = () => {
+        loggedInVar(true);
+        navigate("/")
+    }
     const onvalid = (data:ILoginF) => {
     }
     return (
@@ -88,6 +96,7 @@ function LogIn (){
                         {...register("password", {required:true})} />
                     <input type="submit" value="Login" />
                 </LoginForm>
+                <button onClick={loginHanddler}>Log in</button>
                 </FormContainer>
             </Banner>
         </Wrapper>
