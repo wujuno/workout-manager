@@ -1,4 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
+import NotFound from "./components/NotFound";
 import Root from "./Root";
 import Home from "./screens/Home";
 import LogIn from "./screens/Login";
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
                 path: "signup",
                 element: <SignUp/>
             },
-        ]
+        ],
+        errorElement: <NotFound/>
     }
 ])
 
