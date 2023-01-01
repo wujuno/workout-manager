@@ -1,14 +1,6 @@
 import styled from "styled-components";
+import SLayout from "../components/Layout";
 
-const Wrapper = styled.div`
-    width:100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center;
-    position: absolute;
-    top:0px;
-    z-index:-1
-`; 
 
 const Banner = styled.div`
     margin-top:100px;
@@ -19,14 +11,14 @@ const Banner = styled.div`
 
 function Home (){
     return (
-        <Wrapper>
+        <SLayout>
             <Banner>
                 <div>
                     <p>안녕하세요 User님</p>
                     <p>오늘 컨디션은 어떤가요?</p>
                 </div>
             </Banner>
-        </Wrapper>
+        </SLayout>
     )
 }
 

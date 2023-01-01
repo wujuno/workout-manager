@@ -1,66 +1,107 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { loggedInVar } from "../apollo";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import SLayout from "../components/Layout";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { BaseBox } from "../components/shared";
 
-
-const Wrapper = styled.div`
-    width:100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center;
-    position: absolute;
-    top:0px;
-    z-index:-1
-`; 
-
-const Banner = styled.div`
-    margin-top:300px;
-    width:640px;
-    height: 300px;
-
+const TopBox = styled(BaseBox)`
+    padding: 30px 40px;
 `;
 
 const Title = styled.p`
     font-size:40px;
     font-weight:700;
     display:flex;
-    justify-content: space-between;
-    span: last-child {
-        font-size:25px;
-    }
-    align-items:end;
-    
+    justify-content: center;
+    font-size: 25px;
 `;
 
 const FormContainer = styled.div`
-    display:flex;
-    justify-content:center;
-    margin:10px;
-`;
-const LoginForm = styled.form`
     width:100%;
     display:flex;
-    flex-direction: column;
     justify-content:center;
-    align-items:center;
-    margin-top:20px;
-    input {
-        width:80%;
-        padding:15px;
-        border-radius:4px;
-        margin-bottom:10px;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    form {
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        margin-top:35px;
     }
-    input:last-child {
-        margin-top:20px;
-        font-size:17px;
-        font-weight:500;
-    }
-    
-
 `;
+
+const Input = styled.input`
+    width: 100%;
+    border-radius: 3px;
+    padding: 7px;
+    background-color: #fafafa;
+    border: 0.5px solid ${(props) => props.theme.borderColor};
+    margin-top: 5px;
+    box-sizing: border-box;
+    &::placeholder {
+        font-size: 14px;
+    }
+`;
+const SubmitBtn = styled.input`
+    border: none;
+    border-radius: 3px;
+    margin-top: 13px;
+    background-color: ${(props) => props.theme.accentColor};
+    color: ${(props)=> props.theme.bgColor};
+    text-align: center;
+    padding: 11px 0px;
+    font-weight: 600;
+    width: 100%;
+`;
+
+const SSeparator = styled.div`
+  margin: 20px 0px 30px 0px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  div {
+    width: 100%;
+    height: 1px;
+    background-color: ${(props) => props.theme.borderColor};
+  }
+  span {
+    margin: 0px 10px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #8e8e8e;
+  }
+`;
+const GithubLogin = styled.div`
+  display: flex;
+  justify-content:center;
+
+  span {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+`;
+const SBottomBox = styled(BaseBox)`
+    margin-top:15px;
+    font-size:14px;
+    padding: 20px 0px;
+    text-align: center;
+    a {
+        font-weight: 600;
+        margin-left: 5px;
+        color: ${(props) => props.theme.accentColor};
+    }
+`;
+
 interface ILoginF {
-    id: string
+    username: string
     password: string
 }
 
@@ -74,32 +115,40 @@ function LogIn (){
     const onvalid = (data:ILoginF) => {
     }
     return (
-        <Wrapper>
-            <Banner>
-                <div>
-                    <Title>
-                        <span>Login</span>
-                        <span>Workout Manager</span>
-                    </Title>
-                    <hr/>
-                </div>
+        <SLayout>
+            <TopBox>
+                <Title>
+                    <span>Workout Manager</span>
+                </Title>                   
                 <FormContainer>
-                <LoginForm onSubmit={handleSubmit(onvalid)}>
-                    <input
-                        placeholder="ID"
+                <form onSubmit={handleSubmit(onvalid)}>
+                    <Input
+                        placeholder="Username"
                         type="text"  
-                        {...register("id", {required:true})}
+                        {...register("username", {required:true})}
                          />
-                    <input
+                    <Input
                         placeholder="Password" 
                         type="password" 
                         {...register("password", {required:true})} />
-                    <input type="submit" value="Login" />
-                </LoginForm>
-                <button onClick={loginHanddler}>Log in</button>
+                    <SubmitBtn type="submit" value="Login" />
+                </form>
                 </FormContainer>
-            </Banner>
-        </Wrapper>
+                <SSeparator>
+                    <div></div>
+                    <span>Or</span>
+                    <div></div>
+                </SSeparator>
+                <GithubLogin>
+                    <FontAwesomeIcon icon={faGithub} />
+                    <span>Log in with Github</span>
+                </GithubLogin>
+            </TopBox>
+            <SBottomBox>
+                <span>Do you have an account?</span>
+                <Link to="signup">Sign Up</Link>
+            </SBottomBox>
+        </SLayout>
     )
 }
 

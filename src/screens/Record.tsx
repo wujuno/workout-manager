@@ -2,16 +2,8 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import SLayout from "../components/Layout";
 
-const Wrapper = styled.div`
-    width:100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center;
-    position: absolute;
-    top:0px;
-    z-index:-1
-`; 
 
 const Container = styled.div`
     margin-top:100px;
@@ -118,7 +110,7 @@ function Record (){
         setShoulderVisible(false);
     }
     return (
-        <Wrapper>
+        <SLayout>
             <Container>
                 <Title>
                     <p>아래에 운동 내용을 기록하세요!</p>
@@ -181,7 +173,7 @@ function Record (){
                     <input type="submit" value="등록"/>
                 </Form>
             </Container>
-        </Wrapper>
+        </SLayout>
     )
 }
 

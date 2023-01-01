@@ -1,15 +1,8 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form"
+import SLayout from "../components/Layout";
 
-const Wrapper = styled.div`
-    width:100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center;
-    position: absolute;
-    top:0px;
-    z-index:-1
-`; 
+
 
 const Banner = styled.div`
     margin-top:300px;
@@ -66,7 +59,7 @@ function SignUp (){
     const onvalid = (data:ISignUpF) => {
     }
     return (
-        <Wrapper>
+        <SLayout>
             <Banner>
                 <div>
                     <Title>
@@ -99,7 +92,7 @@ function SignUp (){
                 </LoginForm>
                 </FormContainer>
             </Banner>
-        </Wrapper>
+        </SLayout>
     )
 }
 

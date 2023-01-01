@@ -37,6 +37,7 @@ const SignUp = styled.div`
     background-color:${(props)=> props.theme.accentColor};
     color:${(props)=> props.theme.bgColor};
     padding: 10px;
+    font-weight: 600;
 `;
 const LoginIn = styled.div`
     padding: 10px;
