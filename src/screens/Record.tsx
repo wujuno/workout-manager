@@ -6,7 +6,6 @@ import SLayout from "../components/Layout";
 
 
 const Container = styled.div`
-    margin-top:100px;
     width:1020px;
     height: 600px;
     border: 2px solid tomato;

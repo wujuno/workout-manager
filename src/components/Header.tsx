@@ -8,7 +8,7 @@ const Wrapper = styled.nav`
     display:grid;
     grid-template-columns: repeat(4,1fr);
     padding:25px 30px;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: ${props => props.theme.headerShadow}
 `;
 //logo
 const Logo = styled.div`
@@ -35,9 +35,10 @@ const Validation = styled.div`
 `;
 const SignUp = styled.div`
     background-color:${(props)=> props.theme.accentColor};
-    color:${(props)=> props.theme.bgColor};
+    color: white;
     padding: 10px;
     font-weight: 600;
+    border-radius: 4px;
 `;
 const LoginIn = styled.div`
     padding: 10px;

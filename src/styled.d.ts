@@ -7,5 +7,6 @@ declare module "styled-components" {
         accentColor: string;
         authBgColor: string;
         borderColor: string;
+        headerShadow: string;
     }
 }
