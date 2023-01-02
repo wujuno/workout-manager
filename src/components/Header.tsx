@@ -1,6 +1,6 @@
 import { useReactiveVar } from "@apollo/client/react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { darkModeVar, loggedInVar, logUserOut } from "../apollo";
 
@@ -54,10 +54,8 @@ function Header () {
             setTheme(prev => !prev)
             darkModeVar(theme);
     }
-    const navigate = useNavigate();
     const logOutHanddler =()=>{
         logUserOut();
-        navigate("/login");
     }
     return (
         <Wrapper>

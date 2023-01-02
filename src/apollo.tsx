@@ -10,7 +10,7 @@ export const logUserIn = (token:string) => {
 }
 export const logUserOut = () => {
     localStorage.removeItem(TOKEN)
-    loggedInVar(false);
+    window.location.reload();
 }
 
 export const darkModeVar = makeVar(false);

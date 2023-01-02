@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { loggedInVar, logUserIn } from "../apollo";
-import { useNavigate } from "react-router-dom";
+import { logUserIn } from "../apollo";
+import { useLocation, useNavigate } from "react-router-dom";
 import SLayout from "../components/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -39,6 +39,13 @@ interface IData {
     }
 }
 
+const Notification = styled.div`
+    color: #01a862;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 5px 0px 10px 0px;
+`;
+
 const LOGIN_MUTATION = gql`
     mutation login($username:String!, $password:String!){
         login(username:$username, password:$password){
@@ -50,13 +57,21 @@ const LOGIN_MUTATION = gql`
 `;
 
 function LogIn (){
+    const navigate = useNavigate();
+    const location = useLocation();
     const { register, 
             handleSubmit,
             setValue,
             formState,
             getValues,
             setError,
-            clearErrors } = useForm<ILoginF>({mode:"onChange"});
+            clearErrors } = useForm<ILoginF>({
+                mode:"onChange",
+                defaultValues:{
+                    username:location?.state?.username || "",
+                    password:location?.state?.password || "",
+                }
+            });
     const onCompleted = (data:IData) => {
         const {login:{error,ok,token}} = data;
         if(!ok){
@@ -66,10 +81,11 @@ function LogIn (){
         }
         if(token){
             logUserIn(token);
+            navigate("/");
         }
     }
     const [login, {loading}] = useMutation(LOGIN_MUTATION,{onCompleted});
-    const onvalid = (data:ILoginF) => {
+    const onvalid = () => {
         if(loading){
             return;
         }
@@ -82,6 +98,8 @@ function LogIn (){
         })
         setValue("username","");
         setValue("password","");
+        
+
     }
     const clearLoginError = () => clearErrors("result");
     return (
@@ -90,7 +108,8 @@ function LogIn (){
                 <title>Login | WM</title>
             </Helmet>
             <TopBox>
-                <STitle title="Workout Manager" />        
+                <STitle title="Workout Manager" />
+                      
                 <FormBox>
                 <form onSubmit={handleSubmit(onvalid)}>
                     <Input
@@ -133,6 +152,7 @@ function LogIn (){
                         disabled={!formState.isValid || loading} 
                     />
                     <FormError message={formState?.errors?.result?.message} />
+                    <Notification>{location?.state?.message}</Notification> 
                 </form>
                 </FormBox>
                 <Separator/>
