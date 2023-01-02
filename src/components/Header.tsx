@@ -1,8 +1,11 @@
 import { useReactiveVar } from "@apollo/client/react";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link,} from "react-router-dom";
 import styled from "styled-components";
-import { darkModeVar, loggedInVar, logUserOut } from "../apollo";
+import { darkModeVar, disableDarkMode, enableDarkMode, loggedInVar, logUserOut } from "../apollo";
 
 const Wrapper = styled.nav`
     display:grid;
@@ -43,17 +46,20 @@ const SignUp = styled.div`
 const LoginIn = styled.div`
     padding: 10px;
 `;
-
+const DarkModeToggle = styled.div`
+    padding: 10px;
+    border: 0.4px solid ${props=> props.theme.borderColor};
+    border-radius:20px;
+    width: 80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+`;
 
 
 function Header () {
-    const [theme, setTheme] = useState(false);
     const isLoggedIn = useReactiveVar(loggedInVar);
     const isDark = useReactiveVar(darkModeVar);
-    const themeHanddler = () => {
-            setTheme(prev => !prev)
-            darkModeVar(theme);
-    }
     const logOutHanddler =()=>{
         logUserOut();
     }
@@ -69,7 +75,12 @@ function Header () {
                 </Item>
             </Items>
             <Validation>
-                <button onClick={themeHanddler}>{isDark ? "Light Mode" :"Dark Mode"}</button>    
+                <DarkModeToggle onClick={isDark ? disableDarkMode : enableDarkMode} >
+                    <FontAwesomeIcon  
+                        icon={isDark ? faSun : faMoon} 
+                        size="1x"
+                     />
+                </DarkModeToggle>    
                 {isLoggedIn 
                 ? <Link to="/">
                     <SignUp onClick={logOutHanddler}>Log out</SignUp>
