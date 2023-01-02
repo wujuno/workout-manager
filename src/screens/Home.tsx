@@ -1,6 +1,8 @@
+import { ApolloClient } from "@apollo/client";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { loggedInVar } from "../apollo";
 import SLayout from "../components/Layout";
 
 
@@ -10,6 +12,7 @@ const Banner = styled.div`
     border: 2px solid tomato;
 `;
 
+
 function Home (){
     return (
         <SLayout>
@@ -17,10 +20,12 @@ function Home (){
                 <title>Home | WM</title>
             </Helmet>
             <Banner>
-                <div>
-                    <p>안녕하세요 User님</p>
+                {loggedInVar() 
+                ? <div>
+                    <p>안녕하세요 </p>
                     <p>오늘 컨디션은 어떤가요?</p>
-                </div>
+                </div> 
+                : <span>안녕하세요</span>}
             </Banner>
         </SLayout>
     )

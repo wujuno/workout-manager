@@ -1,8 +1,8 @@
 import { useReactiveVar } from "@apollo/client/react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { darkModeVar, loggedInVar } from "../apollo";
+import { darkModeVar, loggedInVar, logUserOut } from "../apollo";
 
 const Wrapper = styled.nav`
     display:grid;
@@ -54,6 +54,11 @@ function Header () {
             setTheme(prev => !prev)
             darkModeVar(theme);
     }
+    const navigate = useNavigate();
+    const logOutHanddler =()=>{
+        logUserOut();
+        navigate("/login");
+    }
     return (
         <Wrapper>
             <Link to="/">
@@ -69,7 +74,7 @@ function Header () {
                 <button onClick={themeHanddler}>{isDark ? "Light Mode" :"Dark Mode"}</button>    
                 {isLoggedIn 
                 ? <Link to="/">
-                    <SignUp onClick={()=>loggedInVar(false)}>Log out</SignUp>
+                    <SignUp onClick={logOutHanddler}>Log out</SignUp>
                 </Link>
                 : <>
                 <Link to="login">

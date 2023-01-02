@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { loggedInVar } from "../apollo";
+import { loggedInVar, logUserIn } from "../apollo";
 import { useNavigate } from "react-router-dom";
 import SLayout from "../components/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,7 @@ import Separator from "../components/auth/Separator";
 import BottomBox from "../components/auth/BottomBox";
 import FormError from "../components/auth/FormError";
 import { Helmet } from "react-helmet-async";
+import { gql, useMutation } from "@apollo/client";
 
 const GithubLogin = styled.div`
   display: flex;
@@ -25,24 +26,64 @@ const GithubLogin = styled.div`
   }
 `;
 
-
 interface ILoginF {
     username: string
     password: string
+    [id:string]: string
+}
+interface IData {
+    login: {
+        ok: boolean
+        error: string
+        token: string
+    }
 }
 
-function LogIn (){
-    const { register, handleSubmit,setValue,formState} = useForm<ILoginF>(
-        {mode:"onChange"});
-    const navigate = useNavigate();
-    const loginHanddler = () => {
-        loggedInVar(true);
-        navigate("/")
+const LOGIN_MUTATION = gql`
+    mutation login($username:String!, $password:String!){
+        login(username:$username, password:$password){
+            ok
+            token
+            error
+        }
     }
+`;
+
+function LogIn (){
+    const { register, 
+            handleSubmit,
+            setValue,
+            formState,
+            getValues,
+            setError,
+            clearErrors } = useForm<ILoginF>({mode:"onChange"});
+    const onCompleted = (data:IData) => {
+        const {login:{error,ok,token}} = data;
+        if(!ok){
+            return setError("result",{
+                message: error,
+            })
+        }
+        if(token){
+            logUserIn(token);
+        }
+    }
+    const [login, {loading}] = useMutation(LOGIN_MUTATION,{onCompleted});
     const onvalid = (data:ILoginF) => {
+        if(loading){
+            return;
+        }
+        const {username, password} = getValues();
+        login({
+            variables:{
+                username,
+                password,
+            }
+        })
         setValue("username","");
         setValue("password","");
     }
+    const clearLoginError = () => clearErrors("result");
     return (
         <SLayout>
             <Helmet>
@@ -54,7 +95,8 @@ function LogIn (){
                 <form onSubmit={handleSubmit(onvalid)}>
                     <Input
                         placeholder="Username"
-                        type="text"  
+                        type="text" 
+                        onFocus={clearLoginError}
                         {...register("username", {
                             required:"유저이름을 입력해주세요.", 
                             minLength:{
@@ -70,7 +112,8 @@ function LogIn (){
                     <FormError message={formState?.errors?.username?.message} />  
                     <Input
                         placeholder="Password" 
-                        type="password" 
+                        type="password"
+                        onFocus={clearLoginError}
                         {...register("password", {
                             required:"비밀번호를 입력해주세요.",
                             minLength:{
@@ -84,7 +127,12 @@ function LogIn (){
                             })} 
                     />
                     <FormError message={formState?.errors?.password?.message} />
-                    <SubmitBtn type="submit" value="Login" />
+                    <SubmitBtn 
+                        type="submit" 
+                        value={loading ? "Loading..." : "Log in"}
+                        disabled={!formState.isValid || loading} 
+                    />
+                    <FormError message={formState?.errors?.result?.message} />
                 </form>
                 </FormBox>
                 <Separator/>
