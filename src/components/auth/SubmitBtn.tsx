@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Btn = styled.input`
+const SubmitBtn = styled.input`
 border: none;
 border-radius: 3px;
 margin-top: 13px;
@@ -12,12 +12,4 @@ font-weight: 600;
 width: 100%;
 `;
 
-type ButtonProps = {
-    type:string;
-    value:string;
-}
-
-function SubmitBtn(props:ButtonProps) {
-    return <Btn {...props} />;
-  }
-  export default SubmitBtn;
+export default SubmitBtn;

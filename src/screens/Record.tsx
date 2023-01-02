@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import SLayout from "../components/Layout";
+import { Helmet } from "react-helmet-async";
 
 
 const Container = styled.div`
@@ -110,6 +111,9 @@ function Record (){
     }
     return (
         <SLayout>
+            <Helmet>
+                <title>Record | WM</title>
+            </Helmet>
             <Container>
                 <Title>
                     <p>아래에 운동 내용을 기록하세요!</p>

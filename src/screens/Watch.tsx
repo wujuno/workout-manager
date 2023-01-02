@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import SLayout from "../components/Layout";
 
@@ -10,6 +11,9 @@ const Banner = styled.div`
 function Watch (){
     return (
         <SLayout>
+            <Helmet>
+                <title>Watch | WM</title>
+            </Helmet>
             <Banner>
             <span>Watch</span>
             </Banner>

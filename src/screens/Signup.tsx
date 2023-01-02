@@ -10,6 +10,7 @@ import Separator from "../components/auth/Separator";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BottomBox from "../components/auth/BottomBox";
+import { Helmet } from "react-helmet-async";
 
 const GithubLogin = styled.div`
   display: flex;
@@ -32,9 +33,13 @@ interface ISignUpF {
 function SignUp (){
     const { register, handleSubmit } = useForm<ISignUpF>();
     const onvalid = (data:ISignUpF) => {
+        
     }
     return (
         <SLayout>
+            <Helmet>
+                <title>SignUp | WM</title>
+            </Helmet>
             <TopBox>
             <STitle title="Workout Manager" />
                 <FormBox>
@@ -67,7 +72,7 @@ function SignUp (){
                 </GithubLogin>
             </TopBox>
             <BottomBox 
-                cta="Do you have an account?"
+                cta="Have an account?"
                 link="/login"
                 linkText="Log in"
             />

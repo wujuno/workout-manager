@@ -1,4 +1,5 @@
 import { useReactiveVar } from "@apollo/client";
+import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darkModeVar } from "./apollo";
@@ -14,12 +15,14 @@ function Root() {
 	const darkMode = useReactiveVar(darkModeVar);
   return (
 	<>
+		<HelmetProvider>
 		<ThemeProvider theme={darkMode ?darkTheme :lightTheme}>
 		<GlobalStyles/>
 		<Header/>
 		<Outlet/>
 		<Footer/>
 		</ThemeProvider>
+		</HelmetProvider>
 	</>
   );
 }

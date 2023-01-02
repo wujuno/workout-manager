@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SLayout from "../components/Layout";
 
@@ -11,6 +13,9 @@ const Banner = styled.div`
 function Home (){
     return (
         <SLayout>
+            <Helmet>
+                <title>Home | WM</title>
+            </Helmet>
             <Banner>
                 <div>
                     <p>안녕하세요 User님</p>

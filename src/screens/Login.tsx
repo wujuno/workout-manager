@@ -12,6 +12,8 @@ import Input from "../components/auth/Input";
 import SubmitBtn from "../components/auth/SubmitBtn";
 import Separator from "../components/auth/Separator";
 import BottomBox from "../components/auth/BottomBox";
+import FormError from "../components/auth/FormError";
+import { Helmet } from "react-helmet-async";
 
 const GithubLogin = styled.div`
   display: flex;
@@ -30,16 +32,22 @@ interface ILoginF {
 }
 
 function LogIn (){
-    const { register, handleSubmit } = useForm<ILoginF>();
+    const { register, handleSubmit,setValue,formState } = useForm<ILoginF>(
+        {mode:"onChange"});
     const navigate = useNavigate();
     const loginHanddler = () => {
         loggedInVar(true);
         navigate("/")
     }
     const onvalid = (data:ILoginF) => {
+        setValue("username","");
+        setValue("password","");
     }
     return (
         <SLayout>
+            <Helmet>
+                <title>Login | WM</title>
+            </Helmet>
             <TopBox>
                 <STitle title="Workout Manager" />        
                 <FormBox>
@@ -47,12 +55,35 @@ function LogIn (){
                     <Input
                         placeholder="Username"
                         type="text"  
-                        {...register("username", {required:true})}
-                         />
+                        {...register("username", {
+                            required:"유저이름을 입력해주세요.", 
+                            minLength:{
+                                value:2,
+                                message: "유저이름은 2자 보다 길어야 합니다.",
+                            }, 
+                            maxLength:{
+                                value:15,
+                                message: "유저이름은 15자 보다 짧아야 합니다.",
+                            },
+                        })}
+                    />
+                    <FormError message={formState?.errors?.username?.message} />  
                     <Input
                         placeholder="Password" 
                         type="password" 
-                        {...register("password", {required:true})} />
+                        {...register("password", {
+                            required:"비밀번호를 입력해주세요.",
+                            minLength:{
+                                value:6,
+                                message: "비밀번호는 6자 보다 길어야 합니다.",
+                            }, 
+                            maxLength:{
+                                value:20,
+                                message: "비밀번호는 20자 보다 짧아야 합니다.",
+                            },
+                            })} 
+                    />
+                    <FormError message={formState?.errors?.password?.message} />
                     <SubmitBtn type="submit" value="Login" />
                 </form>
                 </FormBox>
