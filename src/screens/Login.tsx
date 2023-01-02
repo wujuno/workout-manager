@@ -32,7 +32,7 @@ interface ILoginF {
 }
 
 function LogIn (){
-    const { register, handleSubmit,setValue,formState } = useForm<ILoginF>(
+    const { register, handleSubmit,setValue,formState} = useForm<ILoginF>(
         {mode:"onChange"});
     const navigate = useNavigate();
     const loginHanddler = () => {
