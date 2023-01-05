@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import SLayout from "../components/Layout";
+import { BaseBox } from "../components/shared";
 
-const Banner = styled.div`
+const Banner = styled(BaseBox)`
     width:1020px;
     height: 300px;
-    border: 2px solid tomato;
 `;
 
 function Watch (){

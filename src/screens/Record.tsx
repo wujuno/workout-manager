@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import SLayout from "../components/Layout";
 import { Helmet } from "react-helmet-async";
+import { BaseBox } from "../components/shared";
 
 
-const Container = styled.div`
+const Container = styled(BaseBox)`
     width:1020px;
     height: 600px;
-    border: 2px solid tomato;
     display:flex;
     flex-direction:column;
     align-items:center;
