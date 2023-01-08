@@ -1,4 +1,4 @@
-import { ApolloClient, useReactiveVar } from "@apollo/client";
+import { useReactiveVar } from "@apollo/client";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -25,9 +25,13 @@ const MiddleBox = styled(HomeBaseBox)`
         font-weight:600;
     }
 `;
-
+const HistoryWrapper = styled.div`
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+`;
 const HistoryBox = styled.div`
-    padding:10px 20px;
+    padding:15px 20px;
     border: 1px solid ${props=>props.theme.borderColor};
     border-radius:20px;
     display: flex;
@@ -36,6 +40,10 @@ const HistoryBox = styled.div`
         font-size:15px;
     }
     margin-top:20px;
+    max-width:480px;
+    width:100%;
+    cursor:pointer;
+    box-shadow: ${props => props.theme.headerShadow};
 `
 const DateBox = styled.div`
     padding:2px 5px;
@@ -47,7 +55,12 @@ const DateBox = styled.div`
     align-items:center;
 `;
 const ListBox = styled.div`
-    margin-top:10px;
+    margin-top:15px;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows:20px;
+    text-align:center;
+    
 `;
 const Nothing = styled.div`
     margin-top:15px;
@@ -61,9 +74,9 @@ const Button = styled.span`
   box-shadow:${props => props.theme.headerShadow};
 `;
 
+
 function Home (){
     const isLoggedIn = useReactiveVar(loggedInVar);
-    const loggedInUser = useUser();
     const {data} = useUser();
     return (
         <SLayout>
@@ -84,14 +97,21 @@ function Home (){
                     </TopBox>
                     <MiddleBox>
                         <span>{data?.me?.username}님의 최근 운동기록입니다.</span>
-                        <HistoryBox>
-                            <DateBox><span>2022-xx-xx</span></DateBox>
-                            <ListBox>스쿼트 바벨프레스 레그레이즈</ListBox>
-                        </HistoryBox>
-                        <HistoryBox>
-                            <DateBox><span>2022-xx-xx</span></DateBox>
-                            <ListBox>바벨런지 숄더프레스 행잉레그레이즈</ListBox>
-                        </HistoryBox>
+                        <HistoryWrapper>
+                            {data?.me?.records?.map(
+                                record => 
+                                    <HistoryBox>
+                                        <DateBox><span>{record.date}</span></DateBox>
+                                        <ListBox>
+                                            {record?.items?.map(
+                                                item => 
+                                                    <span>{item.name}</span>
+                                                
+                                            )}
+                                        </ListBox>
+                                    </HistoryBox>
+                            )}
+                        </HistoryWrapper>
                     </MiddleBox>
                 </div> 
                 : <TopBox>

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "record",
-                element: <Record/>
+                element: <Record/>,
             },
             {
                 path: "watch",

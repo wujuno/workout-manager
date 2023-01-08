@@ -11,7 +11,7 @@ const Wrapper = styled.nav`
     display:grid;
     grid-template-columns: repeat(4,1fr);
     padding:25px 30px;
-    box-shadow: ${props => props.theme.headerShadow}
+    box-shadow: ${props => props.theme.headerShadow};
 `;
 //logo
 const Logo = styled.div`

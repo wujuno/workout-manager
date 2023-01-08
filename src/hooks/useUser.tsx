@@ -7,16 +7,34 @@ const ME_QUERY = gql`
         me {
             email
             username
+            records{
+                date
+                items {
+                    name
+                }
+            }
         }
     }
 `;
 
+interface UseUserQuery {
+    me: {
+        email: string
+        username: string
+        records?: {
+            date: string
+            items: {
+                name: string
+            }[]
+        }[]
+    }
+}
+
 function useUser () {
     const hasToken = useReactiveVar(loggedInVar);
-    const {data} = useQuery(ME_QUERY, {
+    const {data} = useQuery<UseUserQuery>(ME_QUERY, {
         skip: !hasToken,
     });
-    console.log(data);
     useEffect (()=>{
         if(data?.me === null){
             logUserOut();
