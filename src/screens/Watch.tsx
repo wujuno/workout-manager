@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import SLayout from "../components/Layout";
 import { BaseBox } from "../components/shared";
@@ -15,7 +16,7 @@ function Watch (){
                 <title>Watch | WM</title>
             </Helmet>
             <Banner>
-            <span>Watch</span>
+            <Outlet/>
             </Banner>
         </SLayout>
     )
