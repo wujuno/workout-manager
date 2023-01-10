@@ -23,20 +23,9 @@ const router = createBrowserRouter([
                 element: <Record/>,
             },
             {
-                path: "watch",
+                path: "watch/:username",
                 element: <Watch/>,
-                children: [
-                    {
-                        path:":date",
-                        element: <Date/>,
-                        children: [
-                            {
-                                path:":test",
-                                element: <Test/>
-                            }
-                        ]
-                    }
-                ]
+                
             },
             {
                 path: "login",

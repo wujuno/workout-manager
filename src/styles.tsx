@@ -29,6 +29,10 @@ export const GlobalStyles = createGlobalStyle`
     }
     * {
     box-sizing:border-box;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+    ::-webkit-scrollbar {
+      display:none
     }
     a {
         text-decoration: none;

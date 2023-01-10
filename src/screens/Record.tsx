@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 import SLayout from "../components/Layout";
 import { Helmet } from "react-helmet-async";
 import { BaseBox } from "../components/shared";
-import {usePull, usePush} from "../hooks/useWorkoutParts";
+import {useAbs, useLegs, usePull, usePush, useShoulders} from "../hooks/useWorkoutParts";
 import { gql, useMutation } from "@apollo/client";
 import SubmitBtn from "../components/auth/SubmitBtn";
-
+import Input from "../components/auth/Input";
 const RecordWrapper = styled(BaseBox)`
     width:1000px;
     padding:20px 40px;
@@ -18,10 +18,10 @@ const RecordWrapper = styled(BaseBox)`
     }
 `;
 const RecordBoxes = styled(BaseBox)`
-    width:250px;
-    height:500px;
     margin-left:10px;
     padding:15px 20px;
+    height:270px;
+    overflow-y: auto;
 `;
 const DateBox = styled.div`
     width:100%
@@ -32,22 +32,33 @@ const ListWrapper = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
-    li {
-        padding:7px 6px;
-        margin-bottom: 15px;
-        border-radius: 20px;
-        background-color: ${props=> props.theme.authBgColor};
-        border: 1px solid ${(props) => props.theme.borderColor};
-        font-size: 13px;
-        font-weight: 600;
-        cursor:pointer;
+`;
+
+const List = styled.li`
+    padding:7px 6px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: ${props=> props.theme.authBgColor};
+    border: 1px solid ${(props) => props.theme.borderColor};
+    font-size: 13px;
+    font-weight: 600;
+    &:hover {
+        border: 2px solid ${(props) => props.theme.accentColor};
     }
+    cursor:pointer;
 `;
 
 const CountingWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+    grid-column-gap: 1rem;
+    padding:20px;
+    text-align: center;
+`;
+
+const RecordSubmitBtn = styled(SubmitBtn)`
+    grid-column: 1 / span 2
 `;
 
 const bigPartsArr = [
@@ -87,6 +98,15 @@ const CREATERECORD_MUTATION = gql`
         }
 `;
 
+interface ILoginF {
+    date: string
+    times: string
+    setTimes: string
+    weight: string
+    restTime: string
+    [id:string]: string
+}
+
 interface IData {
     createRecord: {
         ok: boolean
@@ -95,13 +115,21 @@ interface IData {
 }
 
 function Record (){
+    const today = new Date().toISOString().substring(0, 10);
    const {
     register,
     handleSubmit,
     getValues,
-    setError} = useForm();
+    setError} = useForm<ILoginF>({
+        defaultValues:{
+            date: today,
+        }
+    });
     const {data:pushData} = usePush();
     const {data:pullData} = usePull();
+    const {data:legsData} = useLegs();
+    const {data:shouldersData} = useShoulders();
+    const {data:absData} = useAbs();
     const [bigPart, setBigPart] = useState("");
     const [name, setItem] = useState("");
     const bigPartHanddler = (event:React.MouseEvent) => {
@@ -155,26 +183,44 @@ function Record (){
                 <RecordBoxes>
                     <ListWrapper>
                         {bigPartsArr.map(part=>
-                            <li key={part.id} 
+                            <List key={part.id} 
                                 onClick={bigPartHanddler}>
                                 {part.name}
-                            </li>
+                            </List>
                             )
                         }
                     </ListWrapper>                
                 </RecordBoxes>
                 <RecordBoxes>
                     <ListWrapper>
-                    {pushData?.seePush?.map(list=>
-                            <li key={list.id} onClick={listHanddler}>{list.name}</li>
+                        {bigPart === "가슴" 
+                        ? pushData?.seePush?.map(list=>
+                            <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
+                        : bigPart === "등" 
+                        ? pullData?.seePull?.map(list=>
+                            <List key={list.id} onClick={listHanddler}>{list.name}</List>
+                            )
+                        : bigPart === "어깨" 
+                        ? shouldersData?.seeShoulders?.map(list=>
+                            <List key={list.id} onClick={listHanddler}>{list.name}</List>
+                            )
+                        : bigPart === "하체" 
+                        ? legsData?.seeLegs?.map(list=>
+                            <List key={list.id} onClick={listHanddler}>{list.name}</List>
+                            )
+                        : bigPart === "복근" 
+                        ? absData?.seeAbs?.map(list=>
+                            <List key={list.id} onClick={listHanddler}>{list.name}</List>
+                            )
+                        : null
                         }
                     </ListWrapper>
                 </RecordBoxes>
                 <CountingWrapper>
                 {countTitleArr.map(title=>
                     <label key={title.id} htmlFor={title.name}>{title.name}
-                        <input
+                        <Input
                             key={title.id} 
                             type="number" 
                             id={title.name}
@@ -182,7 +228,7 @@ function Record (){
                         />
                     </label>
                     )}
-                <SubmitBtn type="submit" value="등록" />
+                <RecordSubmitBtn type="submit" value="등록" />
                 </CountingWrapper>
                 </form>
             </RecordWrapper>

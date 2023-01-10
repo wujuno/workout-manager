@@ -2,10 +2,12 @@ import { useReactiveVar } from "@apollo/client/react";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { watch } from "fs";
 import { useState } from "react";
 import { Link,} from "react-router-dom";
 import styled from "styled-components";
 import { darkModeVar, disableDarkMode, enableDarkMode, loggedInVar, logUserOut } from "../apollo";
+import useUser from "../hooks/useUser";
 
 const Wrapper = styled.nav`
     display:grid;
@@ -58,6 +60,7 @@ const DarkModeToggle = styled.div`
 
 
 function Header () {
+    const {data} = useUser();
     const isLoggedIn = useReactiveVar(loggedInVar);
     const isDark = useReactiveVar(darkModeVar);
     const logOutHanddler =()=>{
@@ -71,7 +74,7 @@ function Header () {
             <Items>
                 <Item>
                 <Link to="record"><span>Record</span></Link>
-                <Link to="watch"><span>Watch</span></Link>
+                <Link to="watch/username"><span>Watch</span></Link>
                 </Item>
             </Items>
             <Validation>

@@ -16,26 +16,57 @@ const SEEPULL_QUERY = gql`
         }
     }
 `;
+const SEELEGS_QUERY = gql`
+    query seeLegs{
+        seeLegs {
+            name
+            id
+        }
+    }
+`;
+const SEESHOULDERS_QUERY = gql`
+    query seeShoulders{
+        seeShoulders {
+            name
+            id
+        }
+    }
+`;
+const SEEABS_QUERY = gql`
+    query seeAbs{
+        seeAbs {
+            name
+            id
+        }
+    }
+`;
 
-interface IPushQuery {
-    seePush: {
-        name: string
-        id: number
-    }[]
-}
-interface IPullQuery {
-    seePull: {
+
+interface IWorkOutQuery {
+    [id:string]: {
         name: string
         id: number
     }[]
 }
 
 export function usePush() {
-    const {data} = useQuery<IPushQuery>(SEEPUSH_QUERY)
+    const {data} = useQuery<IWorkOutQuery>(SEEPUSH_QUERY)
     return {data}
 }
 export function usePull() {
-    const {data} = useQuery<IPullQuery>(SEEPULL_QUERY)
+    const {data} = useQuery<IWorkOutQuery>(SEEPULL_QUERY)
+    return {data}
+}
+export function useLegs() {
+    const {data} = useQuery<IWorkOutQuery>(SEELEGS_QUERY)
+    return {data}
+}
+export function useShoulders() {
+    const {data} = useQuery<IWorkOutQuery>(SEESHOULDERS_QUERY)
+    return {data}
+}
+export function useAbs() {
+    const {data} = useQuery<IWorkOutQuery>(SEEABS_QUERY)
     return {data}
 }
 
