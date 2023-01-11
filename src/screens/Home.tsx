@@ -30,6 +30,7 @@ const HistoryWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `;
+
 const HistoryBox = styled.div`
     padding:15px 20px;
     border: 1px solid ${props=>props.theme.borderColor};
@@ -41,10 +42,11 @@ const HistoryBox = styled.div`
     }
     margin-top:20px;
     max-width:480px;
-    width:100%;
+    width:480px;
     cursor:pointer;
     box-shadow: ${props => props.theme.headerShadow};
-`
+`;
+
 const DateBox = styled.div`
     padding:2px 5px;
     border: 0.2px solid ${props=>props.theme.borderColor};
