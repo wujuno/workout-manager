@@ -1,4 +1,4 @@
-import { useOutletContext} from "react-router-dom";
+import { Link, useOutletContext} from "react-router-dom";
 import styled from "styled-components";
 import useSeeRecord from "../../hooks/useSeeRecord";
 
@@ -16,6 +16,11 @@ const ListBox = styled.div`
         grid-column: 1 / 3
     }
 `;
+const SLink = styled.span`
+    text-decoration: underline;
+    color: ${props => props.theme.accentColor};
+    font-weight: 600;
+`;
 
 interface IOutletContext {
     date: string
@@ -24,9 +29,10 @@ interface IOutletContext {
 function SeeOneRecord () {
     const {date} = useOutletContext<IOutletContext>();
     const {data} = useSeeRecord(date);
+    console.log(data);
     return (
         <ListWrapper>
-                {data 
+                {data?.seeRecord 
                     ?<div>
                             <ListBox>
                                     <span>이름</span>
@@ -49,7 +55,7 @@ function SeeOneRecord () {
                         )
                     )}
                     </div>
-                    : null
+                    : <span>기록이 없습니다. <Link to="/record"><SLink>Go to Record</SLink></Link></span>
                 }
             </ListWrapper>
     )
