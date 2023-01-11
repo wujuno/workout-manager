@@ -74,7 +74,7 @@ function Header () {
             <Items>
                 <Item>
                 <Link to="record"><span>Record</span></Link>
-                <Link to="watch/username"><span>Watch</span></Link>
+                <Link to={`/watch/${data?.me?.username}`}><span>Watch</span></Link>
                 </Item>
             </Items>
             <Validation>

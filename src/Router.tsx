@@ -5,9 +5,10 @@ import Home from "./screens/Home";
 import LogIn from "./screens/Login";
 import Record from "./screens/Record";
 import SignUp from "./screens/Signup";
-import Watch from "./screens/Watch";
-import Date from "./screens/Date";
+import Watch from "./screens/watch/Watch";
+import Date from "./screens/watch/Date";
 import Test from "./screens/Test";
+import SeeOneRecord from "./screens/watch/SeeOneRecord";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,18 @@ const router = createBrowserRouter([
             {
                 path: "watch/:username",
                 element: <Watch/>,
+                children: [
+                    {
+                        path:"sdate",
+                        element: <Date/>,
+                        children: [
+                            {
+                                path:":date",
+                                element: <SeeOneRecord/>
+                            }
+                        ]
+                    }
+                ]
                 
             },
             {
