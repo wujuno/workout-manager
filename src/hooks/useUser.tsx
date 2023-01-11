@@ -8,8 +8,10 @@ const ME_QUERY = gql`
             email
             username
             records{
+                id
                 date
                 items {
+                    id
                     name
                 }
             }
@@ -22,8 +24,10 @@ interface UseUserQuery {
         email: string
         username: string
         records?: {
+            id: number
             date: string
             items: {
+                id: number
                 name: string
             }[]
         }[]

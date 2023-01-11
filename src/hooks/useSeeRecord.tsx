@@ -32,7 +32,7 @@ interface useSeeRecordQuery {
     }
 }
 
-function useSeeRecord (date:string) {
+function useSeeRecord (date:string|undefined) {
     const {data} = useQuery<useSeeRecordQuery>(SEERECORD_QUERY, {
         variables: {
             date

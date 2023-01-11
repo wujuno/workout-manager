@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -19,9 +19,15 @@ const Input = styled.input`
     font-size:30px;
 `;
 
+interface IParams {
+    
+}
 
 function Date() {
-    const {register, watch} = useForm();
+    const {date:paramsDate} = useParams();
+    const {register, watch} = useForm({
+        defaultValues:{date:paramsDate}
+    });
     const navigate = useNavigate();
     useEffect(()=>{
         navigate(`${watch("date")}`);

@@ -100,16 +100,18 @@ function Home (){
                         <HistoryWrapper>
                             {data?.me?.records?.map(
                                 record => 
-                                    <HistoryBox>
-                                        <DateBox><span>{record.date}</span></DateBox>
+                                    <Link to={`watch/${data?.me?.username}/sdate/${record?.date}`}>
+                                        <HistoryBox>
+                                        <DateBox><span >{record?.date}</span></DateBox>
                                         <ListBox>
                                             {record?.items?.map(
                                                 item => 
-                                                    <span>{item.name}</span>
+                                                    <span key={item?.id}>{item.name}</span>
                                                 
                                             )}
                                         </ListBox>
                                     </HistoryBox>
+                                    </Link>
                             )}
                         </HistoryWrapper>
                     </MiddleBox>

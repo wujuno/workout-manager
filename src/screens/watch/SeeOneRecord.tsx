@@ -1,4 +1,4 @@
-import { Link, useOutletContext} from "react-router-dom";
+import { Link, useOutletContext, useParams} from "react-router-dom";
 import styled from "styled-components";
 import useSeeRecord from "../../hooks/useSeeRecord";
 
@@ -27,9 +27,10 @@ interface IOutletContext {
 }
 
 function SeeOneRecord () {
+    const {date:paramsDate} = useParams();
+    console.log(paramsDate);
     const {date} = useOutletContext<IOutletContext>();
-    const {data} = useSeeRecord(date);
-    console.log(data);
+    const {data} = useSeeRecord(paramsDate);
     return (
         <ListWrapper>
                 {data?.seeRecord 
