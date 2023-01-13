@@ -1,16 +1,8 @@
-## Workout Manager(가칭) v-1.0.0
+## Workout Manager v-1.0.0
 
-### Banner
-
-**Status:** Optional.
-
-**Requirements:**
-
-- Must not have its own title.
-- Must link to local image in current repository.
-- Must appear directly after the title.
-
-* [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
+- 배포: [https://main--workout-manager-web.netlify.app/](https://main--workout-manager-web.netlify.app/)
+- [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
+- [Wiki](https://github.com/wujuno/workout-manager/wiki)
 
 <p align='center'>
     <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
