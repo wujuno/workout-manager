@@ -16,6 +16,8 @@
 
 ## [🏠HomePage](https://main--workout-manager-web.netlify.app/)
 
+#### 💪운동내용을 기록하면 시각화해서 보여주는 웹 앱
+
 - [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
 - [Wiki](https://github.com/wujuno/workout-manager/wiki)
 
