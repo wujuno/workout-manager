@@ -1,7 +1,7 @@
 ## Workout Manager v-1.0.0
 
 <p align='center'>
-<img width='200px' src='https://i.ibb.co/P9YCvPw/workout-manager-banner.png'>
+<img width='400px' src='https://i.ibb.co/P9YCvPw/workout-manager-banner.png'>
 </p>
 
 <p align='center'>
