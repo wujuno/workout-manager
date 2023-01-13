@@ -7,7 +7,7 @@
 <p align='center'>
     <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
     <img src="https://img.shields.io/badge/Typescript-v4.9.3-blue?logo=typescript"/>
-    <img src="https://img.shields.io/badge/styled-components-v5.3.6-DB7093?logo=styled-components"/>
+    <img src="https://img.shields.io/badge/styled components-v5.3.6-DB7093?logo=styled components"/>
     <img src="https://img.shields.io/badge/Netlify-v4.0.10-00C7B7?logo=Netlify"/>
     <img src="https://img.shields.io/badge/Heroku-v5.10.15-430098?logo=Heroku"/>
     <img src="https://img.shields.io/badge/PostgreSQL-v5.10.15-4169E1?logo=PostgreSQL"/>
