@@ -18,6 +18,8 @@
 - [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
 - [Wiki](https://github.com/wujuno/workout-manager/wiki)
 
+## 🌟 서비스 소개
+
 ### 운동에 진심이고 체계적으로 하고 싶지만, 어려움이 있는 당신에게!
 
 ### Workout Manager를 소개합니다.
@@ -28,37 +30,7 @@
 - 현재 상황에 맞는 가장 효과적인 운동방법들을 추천합니다.
 - 이용자는 과거의 운동 기록들을 확인하며 한층 더 발전한 모습을 확인할 수 있습니다
 
-### Table of Contents
-
-**Status:** Required; optional for READMEs shorter than 100 lines.
-
-**Requirements:**
-
-- Must link to all Markdown sections in the file.
-- Must start with the next section; do not include the title or Table of Contents headings.
-- Must be at least one-depth: must capture all `##` headings.
-
-**Suggestions:**
-
-- May capture third and fourth depth headings. If it is a long ToC, these are optional.
-
-### Security
-
-**Status**: Optional.
-
-**Requirements:**
-
-- May go here if it is important to highlight security concerns. Otherwise, it should be in [Extra Sections](#extra-sections).
-
-### Background
-
-**Status:** Optional.
-
-**Requirements:**
-
-- Cover motivation.
-- Cover abstract dependencies.
-- Cover intellectual provenance: A `See Also` section is also fitting.
+## 🌟 주요 기능
 
 ### Install
 
