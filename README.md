@@ -1,8 +1,8 @@
 ## Workout Manager v-1.0.0
 
-- 배포: [https://main--workout-manager-web.netlify.app/](https://main--workout-manager-web.netlify.app/)
-- [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
-- [Wiki](https://github.com/wujuno/workout-manager/wiki)
+<p align='center'>
+<img width='200px' src='https://ibb.co/JydkwG5'>
+</p>
 
 <p align='center'>
     <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
@@ -13,6 +13,10 @@
     <img src="https://img.shields.io/badge/Framer-v7.6.19-0055FF?logo=Framer"/>
     
 </p>
+
+- 배포: [https://main--workout-manager-web.netlify.app/](https://main--workout-manager-web.netlify.app/)
+- [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
+- [Wiki](https://github.com/wujuno/workout-manager/wiki)
 
 ### 운동에 진심이고 체계적으로 하고 싶지만, 어려움이 있는 당신에게!
 
