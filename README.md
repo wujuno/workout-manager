@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/badge/PostgreSQL-v5.10.15-4169E1?logo=PostgreSQL"/>
 </p>
 
-### [HomePage🏠](https://main--workout-manager-web.netlify.app/)
+## [🏠HomePage](https://main--workout-manager-web.netlify.app/)
 
 - [개발배경](https://github.com/wujuno/workout-manager/wiki/%EA%B0%9C%EB%B0%9C%EB%B0%B0%EA%B2%BD%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EB%AA%A9%ED%91%9C)
 - [Wiki](https://github.com/wujuno/workout-manager/wiki)
