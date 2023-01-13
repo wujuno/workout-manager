@@ -6,12 +6,14 @@
 
 <p align='center'>
     <img src="https://img.shields.io/badge/React-v18.2.0-blue?logo=React"/>
-    <img src="https://img.shields.io/badge/node.js-v18.12.1-green?logo=Node.js"/>
-    <img src="https://img.shields.io/badge/mongodb-v4.0.10-critical?logo=mongodb"/>
-    <img src="https://img.shields.io/badge/mongoose-v5.10.15-critical?logo=mongodb"/>
     <img src="https://img.shields.io/badge/Typescript-v4.9.3-blue?logo=typescript"/>
+    <img src="https://img.shields.io/badge/styled-components-v5.3.6-DB7093?logo=styled-components"/>
+    <img src="https://img.shields.io/badge/Netlify-v4.0.10-00C7B7?logo=Netlify"/>
+    <img src="https://img.shields.io/badge/Heroku-v5.10.15-430098?logo=Heroku"/>
+    <img src="https://img.shields.io/badge/PostgreSQL-v5.10.15-4169E1?logo=PostgreSQL"/>
+    <img src="https://img.shields.io/badge/Apollo GraphQL-v16.6.0-311C87?logo=Apollo GraphQL"/>
+    <img src="https://img.shields.io/badge/apollo/client-v5.10.15-430098?"/>
     <img src="https://img.shields.io/badge/Framer-v7.6.19-0055FF?logo=Framer"/>
-    
 </p>
 
 - 배포: [https://main--workout-manager-web.netlify.app/](https://main--workout-manager-web.netlify.app/)
