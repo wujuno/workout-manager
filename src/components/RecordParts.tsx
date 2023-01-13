@@ -24,6 +24,7 @@ export const Back = [
     {id:4, name: "시티드 케이블 로우"},
     {id:5, name: "머신 로우"},
     {id:6, name: "원 암 덤벨 로우"},
+    {id:7, name: "케이블 풀 오버"},
 ]
 
 export const Shoulder = [
