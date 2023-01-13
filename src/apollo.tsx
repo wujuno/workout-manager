@@ -36,8 +36,11 @@ const authLink = setContext((_,{headers}) => {
 })
 
 const httpLink = createHttpLink({
-  uri:"http://localhost:4000/graphql"
+  uri: process.env.NODE_ENV === "production" 
+        ? "https://workout-manager-backend.herokuapp.com/graphql" 
+        : "http://localhost:4000/graphql",
 })
+
 
 export const client = new ApolloClient({
     link: authLink.concat(httpLink),

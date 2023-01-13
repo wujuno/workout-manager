@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 import SLayout from "../../components/Layout";
 import { BaseBox } from "../../components/shared";
-import useSeeRecord from "../../hooks/useSeeRecord";
 
 const Wrapper = styled(BaseBox)`
     width:900px;
