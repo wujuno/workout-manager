@@ -9,3 +9,9 @@ export const BaseBox = styled.div`
 export const FatText = styled.span`
   font-weight: 600;
 `;
+
+export const SLink = styled.span`
+    text-decoration: underline;
+    color: ${props => props.theme.accentColor};
+    font-weight: 600;
+`;

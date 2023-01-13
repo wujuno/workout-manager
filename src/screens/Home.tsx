@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { loggedInVar } from "../apollo";
 import SLayout from "../components/Layout";
-import { BaseBox } from "../components/shared";
+import { BaseBox, SLink } from "../components/shared";
 import useUser from "../hooks/useUser";
 
 
@@ -79,7 +79,7 @@ const Button = styled.span`
 
 function Home (){
     const isLoggedIn = useReactiveVar(loggedInVar);
-    const {data} = useUser();
+    const {data} = useUser(); 
     return (
         <SLayout>
             <Helmet>

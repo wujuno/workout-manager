@@ -1,14 +1,14 @@
-import { motion } from "framer-motion";
-import React, { ReactComponentElement, useState } from "react";
+import React, {useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import SLayout from "../components/Layout";
 import { Helmet } from "react-helmet-async";
 import { BaseBox } from "../components/shared";
-import {useAbs, useLegs, usePull, usePush, useShoulders} from "../hooks/useWorkoutParts";
 import { gql, useMutation } from "@apollo/client";
 import SubmitBtn from "../components/auth/SubmitBtn";
 import Input from "../components/auth/Input";
+import { Abs, Back, bigPartsArr, Chest, countTitleArr, Leg, Shoulder } from "../components/RecordParts";
+
 const RecordWrapper = styled(BaseBox)`
     width:1000px;
     padding:20px 40px;
@@ -61,20 +61,9 @@ const RecordSubmitBtn = styled(SubmitBtn)`
     grid-column: 1 / span 2
 `;
 
-const bigPartsArr = [
-    {name: "가슴", id:1},
-    {name: "등", id:2},
-    {name: "어깨", id:3},
-    {name: "하체", id:4},
-    {name: "복근", id:5},
-]
 
-const countTitleArr = [
-    {id:1, name:"setTimes"},
-    {id:2, name:"times"},
-    {id:3, name:"weight"},
-    {id:4, name:"restTime"}
-]
+
+
 
 const CREATERECORD_MUTATION = gql`
     mutation createRecord(
@@ -125,11 +114,6 @@ function Record (){
             date: today,
         }
     });
-    const {data:pushData} = usePush();
-    const {data:pullData} = usePull();
-    const {data:legsData} = useLegs();
-    const {data:shouldersData} = useShoulders();
-    const {data:absData} = useAbs();
     const [bigPart, setBigPart] = useState("");
     const [name, setItem] = useState("");
     const bigPartHanddler = (event:React.MouseEvent) => {
@@ -194,23 +178,23 @@ function Record (){
                 <RecordBoxes>
                     <ListWrapper>
                         {bigPart === "가슴" 
-                        ? pushData?.seePush?.map(list=>
+                        ? Chest.map(list=>
                             <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
                         : bigPart === "등" 
-                        ? pullData?.seePull?.map(list=>
+                        ? Back.map(list=>
                             <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
                         : bigPart === "어깨" 
-                        ? shouldersData?.seeShoulders?.map(list=>
+                        ? Shoulder.map(list=>
                             <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
                         : bigPart === "하체" 
-                        ? legsData?.seeLegs?.map(list=>
+                        ? Leg.map(list=>
                             <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
                         : bigPart === "복근" 
-                        ? absData?.seeAbs?.map(list=>
+                        ? Abs.map(list=>
                             <List key={list.id} onClick={listHanddler}>{list.name}</List>
                             )
                         : null

@@ -1,7 +1,7 @@
 import { Link, useOutletContext, useParams} from "react-router-dom";
 import styled from "styled-components";
+import { SLink } from "../../components/shared";
 import useSeeRecord from "../../hooks/useSeeRecord";
-
 
 const ListWrapper = styled.div`
     margin-top: 30px;
@@ -16,11 +16,7 @@ const ListBox = styled.div`
         grid-column: 1 / 3
     }
 `;
-const SLink = styled.span`
-    text-decoration: underline;
-    color: ${props => props.theme.accentColor};
-    font-weight: 600;
-`;
+
 
 interface IOutletContext {
     date: string
