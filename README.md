@@ -37,4 +37,4 @@
 
 |                                  가입/로그인                                  |                          메인페이지                          | 지그인 | 로그인 |
 | :---------------------------------------------------------------------------: | :----------------------------------------------------------: | :----: | :----: |
-| <img width='210px' src="https://i.ibb.co/nrPhzPp/workout-manager-signup.png"> | <img width='210px' src='https://i.ibb.co/6tg0z12/image.png'> |  사진  |  사진  |
+| <img width='210px' src="https://i.ibb.co/nrPhzPp/workout-manager-signup.png"> | <img width='210px' src='https://i.ibb.co/Hp59cWt/image.png'> |  사진  |  사진  |
