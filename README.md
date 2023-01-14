@@ -44,3 +44,5 @@
 |                                                                         <img width='210px' src='https://i.ibb.co/9Yz1RTm/sdate-watch.png'>                                                                          |
 
 ## 🚀 배포
+
+<img width='700px' src='https://i.ibb.co/3MDnV9g/001.png'>
