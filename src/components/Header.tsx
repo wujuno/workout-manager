@@ -29,7 +29,15 @@ const Items = styled.ul`
 const Item = styled.li`
     display:grid;
     grid-template-columns: repeat(7,1fr);
-    padding: 10px 0
+    grid-column-gap:1rem;
+    text-align:center;
+    a {
+        padding:10px;
+       &:hover {
+        border-radius:20px;
+        border: 2px solid ${(props) => props.theme.accentColor};
+    }
+    }
 `;
 //identification
 const Validation = styled.div`
@@ -56,6 +64,7 @@ const DarkModeToggle = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
+    cursor: pointer;
 `;
 
 
@@ -72,10 +81,13 @@ function Header () {
                 <Logo>Workout Manager</Logo>
             </Link>
             <Items>
-                <Item>
+               {isLoggedIn
+                ? <Item>
                 <Link to="record"><span>Record</span></Link>
                 <Link to={`/watch/${data?.me?.username}`}><span>Watch</span></Link>
                 </Item>
+                : null
+               } 
             </Items>
             <Validation>
                 <DarkModeToggle onClick={isDark ? disableDarkMode : enableDarkMode} >
