@@ -206,7 +206,14 @@ function Record (){
                     <label key={title.id} htmlFor={title.name}>{title.name}
                         <Input
                             key={title.id} 
-                            type="number" 
+                            type="number"
+                            min={0}
+                            step={1}
+                            onKeyPress={(event) => {
+                                if (event.charCode < 48) {
+                                event.preventDefault();
+                                }
+                            }}
                             id={title.name}
                             {...register(title.name)} 
                         />
