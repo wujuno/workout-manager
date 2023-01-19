@@ -1,4 +1,4 @@
-import { Link, useOutletContext, useParams} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import styled from "styled-components";
 import { SLink } from "../../components/shared";
 import useSeeRecord from "../../hooks/useSeeRecord";
@@ -18,14 +18,8 @@ const ListBox = styled.div`
 `;
 
 
-interface IOutletContext {
-    date: string
-}
-
 function SeeOneRecord () {
     const {date:paramsDate} = useParams();
-    console.log(paramsDate);
-    const {date} = useOutletContext<IOutletContext>();
     const {data} = useSeeRecord(paramsDate);
     return (
         <ListWrapper>

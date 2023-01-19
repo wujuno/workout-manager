@@ -19,9 +19,6 @@ const Input = styled.input`
     font-size:30px;
 `;
 
-interface IParams {
-    
-}
 
 function Date() {
     const {date:paramsDate} = useParams();
@@ -39,9 +36,7 @@ function Date() {
                 <Input 
                     type="date" 
                     {...register("date")} /> 
-            <Outlet context={
-                {date:watch("date")}
-            }/>
+            <Outlet />
             </Container>
         </Wrapper>
     )
