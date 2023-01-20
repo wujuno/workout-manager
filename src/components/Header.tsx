@@ -2,8 +2,6 @@ import { useReactiveVar } from "@apollo/client/react";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { watch } from "fs";
-import { useState } from "react";
 import { Link,} from "react-router-dom";
 import styled from "styled-components";
 import { darkModeVar, disableDarkMode, enableDarkMode, loggedInVar, logUserOut } from "../apollo";
