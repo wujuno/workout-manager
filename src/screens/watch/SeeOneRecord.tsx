@@ -3,6 +3,7 @@ import { Link, useParams} from "react-router-dom";
 import styled from "styled-components";
 import { SLink } from "../../components/shared";
 import useSeeRecord from "../../hooks/useSeeRecord";
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
 const ListWrapper = styled.div`
     margin-top: 30px;
@@ -70,36 +71,53 @@ function SeeOneRecord () {
             }
         })
     }
+    const onDragEnd = () => {};
     return (
         <ListWrapper>
-                {data?.seeRecord 
-                    ?<div>
-                            <ListBoxHeader>
-                                    <span>이름</span>
-                                    <span>세트수(회)</span>
-                                    <span>횟수(회)</span>
-                                    <span>무게(kg)</span>
-                                    <span>쉬는시간(초)</span>
-                                </ListBoxHeader>
-                            {data?.seeRecord?.items.map(
-                        item => (
-                          
-                                <ListBox data-key={item.id} key={item.id}>
-                                    <span>{item.name}</span>
-                                    <span>{item.setTimes}</span>
-                                    <span>{item.times}</span>
-                                    <span>{item.weight}</span>
-                                    <span>{item.restTime}</span>
-                                    <span onClick={deleteHanddler}>❌</span>
-                                </ListBox>
-                          
-                        )
+            {data?.seeRecord 
+                ?<div>
+                        <ListBoxHeader>
+                                <span>이름</span>
+                                <span>세트수(회)</span>
+                                <span>횟수(회)</span>
+                                <span>무게(kg)</span>
+                                <span>쉬는시간(초)</span>
+                            </ListBoxHeader>
+                            <DragDropContext onDragEnd={onDragEnd}>
+                            <Droppable droppableId="one">
+                                {(magic)=>(
+                                <div ref={magic.innerRef} {...magic.droppableProps}>
+                                    {data?.seeRecord?.items.map(
+                    item => (                          
+                            <Draggable draggableId={item.name} index={item.id} >
+                                {(magic)=>(
+                                <ListBox 
+                                    data-key={item.id} 
+                                    key={item.id}
+                                    ref={magic.innerRef}
+                                    {...magic.dragHandleProps}
+                                    {...magic.draggableProps}
+                                >
+                                <span>{item.name}</span>
+                                <span>{item.setTimes}</span>
+                                <span>{item.times}</span>
+                                <span>{item.weight}</span>
+                                <span>{item.restTime}</span>
+                                <span onClick={deleteHanddler}>❌</span>
+                            </ListBox>
+                            )}
+                            </Draggable>                         
+                    )
                     )}
-                    </div>
-                    : <span>기록이 없습니다. <Link to="/record"><SLink>Go to Record</SLink></Link></span>
-                }
-            </ListWrapper>
+                    {magic.placeholder}
+                                    </div>
+                                    )}
+                            </Droppable>
+                    </DragDropContext>
+                </div>
+                : <span>기록이 없습니다. <Link to="/record"><SLink>Go to Record</SLink></Link></span>
+            }
+        </ListWrapper>
     )
 }
-
 export default SeeOneRecord;
