@@ -3,7 +3,8 @@ import { Link, useParams} from "react-router-dom";
 import styled from "styled-components";
 import { SLink } from "../../components/shared";
 import useSeeRecord from "../../hooks/useSeeRecord";
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+import { useState } from "react";
 
 const ListWrapper = styled.div`
     margin-top: 30px;
@@ -71,7 +72,12 @@ function SeeOneRecord () {
             }
         })
     }
-    const onDragEnd = () => {};
+    /* const originOrder = data?.seeRecord?.items;
+    console.log(originOrder);
+    const [order, setOrder] = useState(originOrder); */
+    const onDragEnd = ({destination, source}:DropResult) => {
+        
+    }; 
     return (
         <ListWrapper>
             {data?.seeRecord 
@@ -89,7 +95,7 @@ function SeeOneRecord () {
                                 <div ref={magic.innerRef} {...magic.droppableProps}>
                                     {data?.seeRecord?.items.map(
                     item => (                          
-                            <Draggable draggableId={item.name} index={item.id} >
+                            <Draggable draggableId={item.name} index={item.id} key={item.id} >
                                 {(magic)=>(
                                 <ListBox 
                                     data-key={item.id} 
