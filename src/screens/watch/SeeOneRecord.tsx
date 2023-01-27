@@ -72,9 +72,9 @@ function SeeOneRecord () {
             }
         })
     }
-    /* const originOrder = data?.seeRecord?.items;
+    const originOrder = data?.seeRecord?.items;
     console.log(originOrder);
-    const [order, setOrder] = useState(originOrder); */
+    const [order, setOrder] = useState(originOrder);
     const onDragEnd = ({destination, source}:DropResult) => {
         
     }; 
