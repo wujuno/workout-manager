@@ -102,10 +102,10 @@ function Header () {
                 </Link>
                 : <>
                 <Link to="login">
-                    <LoginIn>Log in</LoginIn>
+                    <Button variant="outlined">Log in</Button>
                 </Link> 
                 <Link to="signup">
-                <Button variant="contained">Sign up</Button>
+                    <Button variant="contained">Sign up</Button>
                 </Link>
                 </> 
                 }  
