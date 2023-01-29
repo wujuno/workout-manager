@@ -6,6 +6,8 @@ import { Link,} from "react-router-dom";
 import styled from "styled-components";
 import { darkModeVar, disableDarkMode, enableDarkMode, loggedInVar, logUserOut } from "../apollo";
 import useUser from "../hooks/useUser";
+import Button from "@mui/material/Button"
+
 
 const Wrapper = styled.nav`
     display:grid;
@@ -103,7 +105,7 @@ function Header () {
                     <LoginIn>Log in</LoginIn>
                 </Link> 
                 <Link to="signup">
-                    <SignUp>Sign up</SignUp>
+                <Button variant="contained">Sign up</Button>
                 </Link>
                 </> 
                 }  
