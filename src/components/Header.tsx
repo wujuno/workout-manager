@@ -53,9 +53,7 @@ const SignUp = styled.div`
     font-weight: 600;
     border-radius: 4px;
 `;
-const LoginIn = styled.div`
-    padding: 10px;
-`;
+
 const DarkModeToggle = styled.div`
     padding: 10px;
     border: 0.4px solid ${props=> props.theme.borderColor};
@@ -98,7 +96,9 @@ function Header () {
                 </DarkModeToggle>    
                 {isLoggedIn 
                 ? <Link to="/">
-                    <SignUp onClick={logOutHanddler}>Log out</SignUp>
+                    <Button 
+                        variant="contained" 
+                        onClick={logOutHanddler}>Log out</Button>
                 </Link>
                 : <>
                 <Link to="login">
