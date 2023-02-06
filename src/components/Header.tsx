@@ -35,14 +35,6 @@ const Item = styled.li`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-column-gap: 1rem;
-  text-align: center;
-  a {
-    padding: 10px;
-    &:hover {
-      border-radius: 20px;
-      border: 2px solid ${(props) => props.theme.accentColor};
-    }
-  }
 `;
 //identification
 const Validation = styled.div`
@@ -50,13 +42,6 @@ const Validation = styled.div`
   grid-template-columns: repeat(3, 100px);
   grid-gap: 1rem;
   text-align: center;
-`;
-const SignUp = styled.div`
-  background-color: ${(props) => props.theme.accentColor};
-  color: white;
-  padding: 10px;
-  font-weight: 600;
-  border-radius: 4px;
 `;
 
 const DarkModeToggle = styled.div`
