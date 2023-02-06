@@ -14,6 +14,10 @@ import {
 import useUser from "../hooks/useUser";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 const Wrapper = styled.nav`
   display: grid;
@@ -61,7 +65,7 @@ function Header() {
   return (
     <Wrapper>
       <Link to="/">
-        <Typography variant="h3">Workout Manager</Typography>
+        <Typography variant="h4">Workout Manager</Typography>
       </Link>
       <Items>
         {isLoggedIn ? (
