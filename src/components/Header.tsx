@@ -13,6 +13,7 @@ import {
 } from "../apollo";
 import useUser from "../hooks/useUser";
 import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
 
 const Wrapper = styled.nav`
   display: grid;
@@ -21,12 +22,7 @@ const Wrapper = styled.nav`
   box-shadow: ${(props) => props.theme.headerShadow};
 `;
 //logo
-const Logo = styled.div`
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-  padding: 5px 0;
-`;
+
 //items
 const Items = styled.ul`
   grid-column: 2 / span 2;
@@ -65,7 +61,7 @@ function Header() {
   return (
     <Wrapper>
       <Link to="/">
-        <Logo>Workout Manager</Logo>
+        <Typography variant="h3">Workout Manager</Typography>
       </Link>
       <Items>
         {isLoggedIn ? (
