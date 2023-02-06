@@ -65,7 +65,7 @@ function Header() {
   return (
     <Wrapper>
       <Link to="/">
-        <Typography variant="h4">Workout Manager</Typography>
+        <Typography variant="h5">Workout Manager</Typography>
       </Link>
       <Items>
         {isLoggedIn ? (
