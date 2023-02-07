@@ -3,27 +3,23 @@ import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { client, darkModeVar } from "./apollo";
-import Header from "./components/Header"
+import Header from "./components/Header";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 
-
-
-
-
 function Root() {
-	const darkMode = useReactiveVar(darkModeVar);
+  const darkMode = useReactiveVar(darkModeVar);
   return (
-	<>
-		<ApolloProvider client={client}>
-		<HelmetProvider>
-		<ThemeProvider theme={darkMode ?darkTheme :lightTheme}>
-		<GlobalStyles/>
-		<Header/>
-		<Outlet/>
-		</ThemeProvider>
-		</HelmetProvider>
-		</ApolloProvider>
-	</>
+    <>
+      <ApolloProvider client={client}>
+        <HelmetProvider>
+          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+            <GlobalStyles />
+
+            <Outlet />
+          </ThemeProvider>
+        </HelmetProvider>
+      </ApolloProvider>
+    </>
   );
 }
 

@@ -1,34 +1,32 @@
 import styled from "styled-components";
+import Header from "./Header";
 
 const Container = styled.div`
-    width:100%;
-    display: flex;
-    justify-content:center;
-    position: absolute;
-    top:0px;
-    z-index:-1
-`; 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 const Wrapper = styled.div`
-    margin-top:200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width:350px;
-    width:100%;
-`
+  padding: 15px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 type Props = {
-    children: React.ReactNode;
+  children: React.ReactNode;
 };
 
-function SLayout ({children}:Props){
-    return (
-        <Container>
-            <Wrapper>
-                {children}
-            </Wrapper>
-        </Container>
-    )
+function SLayout({ children }: Props) {
+  return (
+    <Container>
+      <Header />
+      <Wrapper>{children}</Wrapper>
+    </Container>
+  );
 }
 
 export default SLayout;
