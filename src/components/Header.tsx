@@ -70,7 +70,7 @@ function Header() {
       <Items>
         {isLoggedIn ? (
           <Item>
-            <Link to="record">
+            <Link to="/record">
               <Button variant="text">Record</Button>
             </Link>
             <Link to={`/watch/${data?.me?.username}`}>
@@ -91,10 +91,10 @@ function Header() {
           </Link>
         ) : (
           <>
-            <Link to="login">
+            <Link to="/login">
               <Button variant="outlined">Log in</Button>
             </Link>
-            <Link to="signup">
+            <Link to="/signup">
               <Button variant="contained">Sign up</Button>
             </Link>
           </>
