@@ -16,13 +16,6 @@ import { Helmet } from "react-helmet-async";
 import { gql, useMutation } from "@apollo/client";
 import { Typography } from "@mui/material";
 
-const Wrapper = styled(SLayout)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const GithubLogin = styled.div`
   display: flex;
   justify-content: center;
@@ -112,7 +105,7 @@ function LogIn() {
   };
   const clearLoginError = () => clearErrors("result");
   return (
-    <Wrapper>
+    <SLayout>
       <Helmet>
         <title>Login | WM</title>
       </Helmet>
@@ -176,7 +169,7 @@ function LogIn() {
           linkText="Sign Up"
         />
       </TopBox>
-    </Wrapper>
+    </SLayout>
   );
 }
 
