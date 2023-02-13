@@ -1,5 +1,6 @@
 import { useReactiveVar } from "@apollo/client";
-import { Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
+import { padding } from "@mui/system";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -84,9 +85,11 @@ function Home() {
       </Helmet>
       {isLoggedIn ? (
         <div>
-          <Paper elevation={2}>
-            <p>안녕하세요, {data?.me?.username}님. </p>
-            <p>오늘 컨디션은 어떤가요?</p>
+          <Paper elevation={2} sx={{ p: 3 }}>
+            <Typography variant="h4">
+              안녕하세요, {data?.me?.username}님.{" "}
+            </Typography>
+            <Typography variant="h6">오늘 컨디션은 어떤가요?</Typography>
             <form>
               <select>
                 <option value="good">good</option>
