@@ -1,10 +1,11 @@
 import { useReactiveVar } from "@apollo/client";
+import { Paper } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { loggedInVar } from "../apollo";
 import SLayout from "../components/Layout";
-import { BaseBox, SLink } from "../components/shared";
+import { BaseBox } from "../components/shared";
 import useUser from "../hooks/useUser";
 
 const HomeBaseBox = styled(BaseBox)`
@@ -83,7 +84,7 @@ function Home() {
       </Helmet>
       {isLoggedIn ? (
         <div>
-          <TopBox>
+          <Paper elevation={2}>
             <p>안녕하세요, {data?.me?.username}님. </p>
             <p>오늘 컨디션은 어떤가요?</p>
             <form>
@@ -92,7 +93,7 @@ function Home() {
                 <option value="bad">bad</option>
               </select>
             </form>
-          </TopBox>
+          </Paper>
           <MiddleBox>
             <span>{data?.me?.username}님의 최근 운동기록입니다.</span>
             <HistoryWrapper>
