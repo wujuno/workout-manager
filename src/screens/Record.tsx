@@ -113,6 +113,7 @@ function Record() {
   const [name, setItem] = useState("");
   const bigPartHanddler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setBigPart(event.currentTarget.value);
+    console.log(bigPart);
   };
   const listHanddler = (event: React.MouseEvent) => {
     setItem(event.currentTarget.innerHTML);
