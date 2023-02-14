@@ -166,6 +166,7 @@ function Record() {
                 <Button
                   variant="outlined"
                   fullWidth
+                  color="primary"
                   key={part.id}
                   onClick={bigPartHanddler}
                   aria-valuetext={part.name}
