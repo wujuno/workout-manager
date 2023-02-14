@@ -16,7 +16,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -34,13 +34,6 @@ const RecordBoxes = styled(BaseBox)`
 `;
 const DateBox = styled.div`
   width: 100%;
-`;
-
-const ListWrapper = styled.ul`
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 const List = styled.li`
@@ -167,16 +160,21 @@ function Record() {
             </DateBox>
           </RecordBoxes>
           <RecordBoxes>
-            <ListWrapper>
+            <Stack direction="column" spacing={1}>
               {bigPartsArr.map((part) => (
-                <List key={part.id} onClick={bigPartHanddler}>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  key={part.id}
+                  onClick={bigPartHanddler}
+                >
                   {part.name}
-                </List>
+                </Button>
               ))}
-            </ListWrapper>
+            </Stack>
           </RecordBoxes>
           <RecordBoxes>
-            <Stack direction="column" spacing={1}>
+            <Stack direction="column">
               {bigPart === "가슴"
                 ? Chest.map((list) => (
                     <List key={list.id} onClick={listHanddler}>
