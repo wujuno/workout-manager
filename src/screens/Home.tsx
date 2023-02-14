@@ -1,6 +1,5 @@
 import { useReactiveVar } from "@apollo/client";
 import { Paper, Typography } from "@mui/material";
-import { padding } from "@mui/system";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
