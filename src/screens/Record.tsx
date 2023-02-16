@@ -229,6 +229,7 @@ function Record() {
                 id={title.name}
                 type="number"
                 sx={{ m: 1 }}
+                fullWidth
               />
             ))}
             <RecordSubmitBtn type="submit" value="등록" />
