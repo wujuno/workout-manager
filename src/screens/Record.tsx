@@ -225,8 +225,8 @@ function Record() {
           <CountingWrapper>
             {countTitleArr.map((title) => (
               <TextField
-                label={String(title)}
-                id={String(title)}
+                label={title.name}
+                id={title.name}
                 type="number"
                 sx={{ m: 1, width: "25ch" }}
               />
