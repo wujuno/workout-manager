@@ -16,7 +16,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -157,6 +157,7 @@ function Record() {
         <form onSubmit={handleSubmit(onvalid)}>
           <RecordBoxes>
             <DateBox>
+              <TextField type="date" variant="outlined"></TextField>
               <input type="date" {...register("date", { required: true })} />
             </DateBox>
           </RecordBoxes>
@@ -166,7 +167,6 @@ function Record() {
                 <Button
                   variant="outlined"
                   fullWidth
-                  color="primary"
                   key={part.id}
                   onClick={bigPartHanddler}
                   aria-valuetext={part.name}
