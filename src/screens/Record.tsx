@@ -16,7 +16,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, ButtonGroup, Stack, TextField } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -85,6 +85,14 @@ const CREATERECORD_MUTATION = gql`
     }
   }
 `;
+
+const buttons = [
+  <Button key="one">가슴</Button>,
+  <Button key="two">등</Button>,
+  <Button key="three">어깨</Button>,
+  <Button key="four">하체</Button>,
+  <Button key="five">복근</Button>,
+];
 
 interface ILoginF {
   date: string;
@@ -167,7 +175,15 @@ function Record() {
             </DateBox>
           </RecordBoxes>
           <RecordBoxes>
-            <Stack direction="column" spacing={1}>
+            <ButtonGroup
+              orientation="vertical"
+              aria-label="vertical contained button group"
+              variant="text"
+              fullWidth
+            >
+              {buttons}
+            </ButtonGroup>
+            {/* <Stack direction="column" spacing={1}>
               {bigPartsArr.map((part) => (
                 <Button
                   variant="outlined"
@@ -179,7 +195,7 @@ function Record() {
                   {part.name}
                 </Button>
               ))}
-            </Stack>
+            </Stack> */}
           </RecordBoxes>
           <RecordBoxes>
             <Stack direction="column">
