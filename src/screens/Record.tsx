@@ -16,7 +16,13 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Button, ButtonGroup, Stack, TextField } from "@mui/material";
+import {
+  Button,
+  ButtonGroup,
+  InputAdornment,
+  Stack,
+  TextField,
+} from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -218,22 +224,11 @@ function Record() {
           </RecordBoxes>
           <CountingWrapper>
             {countTitleArr.map((title) => (
-              <label key={title.id} htmlFor={title.name}>
-                {title.name}
-                <Input
-                  key={title.id}
-                  type="number"
-                  min={0}
-                  step={1}
-                  onKeyPress={(event) => {
-                    if (event.charCode < 48) {
-                      event.preventDefault();
-                    }
-                  }}
-                  id={title.name}
-                  {...register(title.name)}
-                />
-              </label>
+              <TextField
+                label={String(title)}
+                id={String(title)}
+                sx={{ m: 1, width: "25ch" }}
+              />
             ))}
             <RecordSubmitBtn type="submit" value="등록" />
           </CountingWrapper>
