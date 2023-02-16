@@ -227,6 +227,7 @@ function Record() {
               <TextField
                 label={String(title)}
                 id={String(title)}
+                type="number"
                 sx={{ m: 1, width: "25ch" }}
               />
             ))}
