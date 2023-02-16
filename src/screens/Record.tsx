@@ -157,8 +157,13 @@ function Record() {
         <form onSubmit={handleSubmit(onvalid)}>
           <RecordBoxes>
             <DateBox>
-              <TextField type="date" variant="outlined"></TextField>
-              <input type="date" {...register("date", { required: true })} />
+              <TextField
+                type="date"
+                variant="outlined"
+                required
+                fullWidth
+                {...register("date", { required: true })}
+              ></TextField>
             </DateBox>
           </RecordBoxes>
           <RecordBoxes>
