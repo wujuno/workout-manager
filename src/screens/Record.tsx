@@ -228,11 +228,13 @@ function Record() {
                 label={title.name}
                 id={title.name}
                 type="number"
-                sx={{ m: 1, width: "24px" }}
+                sx={{ m: 1, width: "100px" }}
                 fullWidth
               />
             ))}
-            <RecordSubmitBtn type="submit" value="등록" />
+            <Button variant="contained" type="submit">
+              등록
+            </Button>
           </CountingWrapper>
         </form>
       </RecordWrapper>
