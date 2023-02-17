@@ -228,7 +228,7 @@ function Record() {
                 label={title.name}
                 id={title.name}
                 type="number"
-                sx={{ m: 1 }}
+                sx={{ m: 1, width: "24px" }}
                 fullWidth
               />
             ))}
