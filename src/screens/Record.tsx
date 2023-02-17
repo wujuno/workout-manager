@@ -232,7 +232,7 @@ function Record() {
                 fullWidth
               />
             ))}
-            <Button variant="contained" type="submit">
+            <Button variant="contained" type="submit" fullWidth>
               등록
             </Button>
           </CountingWrapper>
