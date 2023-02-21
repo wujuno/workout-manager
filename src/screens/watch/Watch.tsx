@@ -22,16 +22,6 @@ const WatchHeader = styled(BaseBox)`
   text-align: center;
 `;
 
-const HeaderTitle = styled.div`
-  padding: 8px 0px;
-  border: 2px solid ${(props) => props.theme.borderColor};
-  border-radius: 20px;
-  font-weight: 600;
-  &:hover {
-    border: 2px solid ${(props) => props.theme.accentColor};
-  }
-`;
-
 function Watch() {
   return (
     <SLayout>
@@ -43,21 +33,15 @@ function Watch() {
           <Link to="sdate">
             <Button variant="outlined">특정날짜 기록</Button>
           </Link>
-          <Link to="sdate33">
-            <Button variant="outlined" disabled>
-              준비중
-            </Button>
-          </Link>
-          <Link to="sdate33">
-            <Button variant="outlined" disabled>
-              준비중
-            </Button>
-          </Link>
-          <Link to="sdate33">
-            <Button variant="outlined" disabled>
-              준비중
-            </Button>
-          </Link>
+          <Button variant="outlined" disabled>
+            <Link to="sdate33">준비중</Link>
+          </Button>
+          <Button variant="outlined" disabled>
+            <Link to="sdate33">준비중</Link>
+          </Button>
+          <Button variant="outlined" disabled>
+            <Link to="sdate33">준비중</Link>
+          </Button>
         </WatchHeader>
         <Outlet />
       </Wrapper>
