@@ -27,7 +27,6 @@ const ListBoxHeader = styled.div`
 const ListBox = styled(ListBoxHeader)`
   &: hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: ${(props) => props.theme.headerShadow};
     span:last-child {
       display: contents;
     }

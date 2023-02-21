@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const BaseBox = styled.div`
-  background-color: ${props=> props.theme.authBgColor};
-  border: 1px solid ${(props) => props.theme.borderColor};
   width: 100%;
 `;
 
@@ -11,7 +9,6 @@ export const FatText = styled.span`
 `;
 
 export const SLink = styled.span`
-    text-decoration: underline;
-    color: ${props => props.theme.accentColor};
-    font-weight: 600;
+  text-decoration: underline;
+  font-weight: 600;
 `;

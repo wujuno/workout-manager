@@ -5,8 +5,6 @@ import SLayout from "../components/Layout";
 import { Helmet } from "react-helmet-async";
 import { BaseBox } from "../components/shared";
 import { gql, useMutation } from "@apollo/client";
-import SubmitBtn from "../components/auth/SubmitBtn";
-import Input from "../components/auth/Input";
 import {
   Abs,
   Back,
@@ -16,13 +14,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import {
-  Button,
-  ButtonGroup,
-  InputAdornment,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -46,13 +38,8 @@ const List = styled.li`
   padding: 7px 6px;
   margin-bottom: 15px;
   border-radius: 20px;
-  background-color: ${(props) => props.theme.authBgColor};
-  border: 1px solid ${(props) => props.theme.borderColor};
   font-size: 13px;
   font-weight: 600;
-  &:hover {
-    border: 2px solid ${(props) => props.theme.accentColor};
-  }
   cursor: pointer;
 `;
 
@@ -63,10 +50,6 @@ const CountingWrapper = styled.div`
   grid-column-gap: 1rem;
   padding: 20px;
   text-align: center;
-`;
-
-const RecordSubmitBtn = styled(SubmitBtn)`
-  grid-column: 1 / span 2;
 `;
 
 const CREATERECORD_MUTATION = gql`

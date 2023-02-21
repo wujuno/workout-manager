@@ -3,24 +3,23 @@ import styled from "styled-components";
 import { BaseBox } from "../shared";
 
 const SBottomBox = styled(BaseBox)`
-    margin-top:15px;
-    font-size:14px;
-    padding: 20px 0px;
-    text-align: center;
-    a {
-        font-weight: 600;
-        margin-left: 5px;
-        color: ${(props) => props.theme.accentColor};
-    }
+  margin-top: 15px;
+  font-size: 14px;
+  padding: 20px 0px;
+  text-align: center;
+  a {
+    font-weight: 600;
+    margin-left: 5px;
+  }
 `;
 
 type Props = {
-    cta: string;
-    link: string;
-    linkText: string;
-}
+  cta: string;
+  link: string;
+  linkText: string;
+};
 
-function BottomBox({ cta, link, linkText }:Props) {
+function BottomBox({ cta, link, linkText }: Props) {
   return (
     <SBottomBox>
       <span>{cta}</span>
