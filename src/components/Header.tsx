@@ -1,16 +1,7 @@
 import { useReactiveVar } from "@apollo/client/react";
-import { faSun } from "@fortawesome/free-regular-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import {
-  darkModeVar,
-  disableDarkMode,
-  enableDarkMode,
-  loggedInVar,
-  logUserOut,
-} from "../apollo";
+import { loggedInVar, logUserOut } from "../apollo";
 import useUser from "../hooks/useUser";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
@@ -44,21 +35,9 @@ const Validation = styled.div`
   text-align: center;
 `;
 
-const DarkModeToggle = styled.div`
-  padding: 10px;
-  border: 0.4px solid ${(props) => props.theme.borderColor};
-  border-radius: 20px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
-
 function Header() {
   const { data } = useUser();
   const isLoggedIn = useReactiveVar(loggedInVar);
-  const isDark = useReactiveVar(darkModeVar);
   const logOutHanddler = () => {
     logUserOut();
   };
@@ -80,9 +59,6 @@ function Header() {
         ) : null}
       </Items>
       <Validation>
-        <DarkModeToggle onClick={isDark ? disableDarkMode : enableDarkMode}>
-          <FontAwesomeIcon icon={isDark ? faSun : faMoon} size="1x" />
-        </DarkModeToggle>
         {isLoggedIn ? (
           <Link to="/">
             <Button variant="contained" onClick={logOutHanddler}>
