@@ -30,9 +30,9 @@ function Watch() {
       </Helmet>
       <Wrapper>
         <WatchHeader>
-          <Link to="sdate">
-            <Button variant="outlined">특정날짜 기록</Button>
-          </Link>
+          <Button variant="outlined">
+            <Link to="sdate">특정날짜 기록</Link>
+          </Button>
           <Button variant="outlined" disabled>
             <Link to="sdate33">준비중</Link>
           </Button>
