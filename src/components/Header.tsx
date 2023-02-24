@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { loggedInVar, logUserOut } from "../apollo";
 import useUser from "../hooks/useUser";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -42,41 +42,45 @@ function Header() {
     logUserOut();
   };
   return (
-    <Wrapper>
-      <Link to="/">
-        <Typography variant="h5">Workout Manager</Typography>
-      </Link>
-      <Items>
-        {isLoggedIn ? (
-          <Item>
-            <Link to="/record">
-              <Button variant="text">Record</Button>
-            </Link>
-            <Link to={`/watch/${data?.me?.username}`}>
-              <Button variant="text">Watch</Button>
-            </Link>
-          </Item>
-        ) : null}
-      </Items>
-      <Validation>
-        {isLoggedIn ? (
+    <AppBar position="static">
+      <Toolbar>
+        <Wrapper>
           <Link to="/">
-            <Button variant="contained" onClick={logOutHanddler}>
-              Log out
-            </Button>
+            <Typography variant="h5">Workout Manager</Typography>
           </Link>
-        ) : (
-          <>
-            <Link to="/login">
-              <Button variant="outlined">Log in</Button>
-            </Link>
-            <Link to="/signup">
-              <Button variant="contained">Sign up</Button>
-            </Link>
-          </>
-        )}
-      </Validation>
-    </Wrapper>
+          <Items>
+            {isLoggedIn ? (
+              <Item>
+                <Link to="/record">
+                  <Button variant="text">Record</Button>
+                </Link>
+                <Link to={`/watch/${data?.me?.username}`}>
+                  <Button variant="text">Watch</Button>
+                </Link>
+              </Item>
+            ) : null}
+          </Items>
+          <Validation>
+            {isLoggedIn ? (
+              <Link to="/">
+                <Button variant="contained" onClick={logOutHanddler}>
+                  Log out
+                </Button>
+              </Link>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="outlined">Log in</Button>
+                </Link>
+                <Link to="/signup">
+                  <Button variant="contained">Sign up</Button>
+                </Link>
+              </>
+            )}
+          </Validation>
+        </Wrapper>
+      </Toolbar>
+    </AppBar>
   );
 }
 
