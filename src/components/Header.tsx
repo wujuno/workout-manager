@@ -13,12 +13,13 @@ import "@fontsource/roboto/700.css";
 const Wrapper = styled.nav`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 25px 30px;
 `;
 
 const MenuBox = styled.div`
   display: flex;
+  grid-column: 2 / span 3;
   justify-content: space-around;
   width: 100%;
 `;
@@ -49,14 +50,10 @@ function Header() {
               {isLoggedIn ? (
                 <>
                   <Link to="/record">
-                    <Typography gutterBottom color="white">
-                      Record
-                    </Typography>
+                    <Typography color="white">Record</Typography>
                   </Link>
                   <Link to={`/watch/${data?.me?.username}`}>
-                    <Typography gutterBottom color="white">
-                      Watch
-                    </Typography>
+                    <Typography color="white">Watch</Typography>
                   </Link>
                 </>
               ) : null}
