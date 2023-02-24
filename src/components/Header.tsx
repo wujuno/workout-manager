@@ -52,10 +52,10 @@ function Header() {
             {isLoggedIn ? (
               <Item>
                 <Link to="/record">
-                  <Button variant="text">Record</Button>
+                  <Typography color="white">Record</Typography>
                 </Link>
                 <Link to={`/watch/${data?.me?.username}`}>
-                  <Button variant="text">Watch</Button>
+                  <Typography color="white">Watch</Typography>
                 </Link>
               </Item>
             ) : null}
