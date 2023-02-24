@@ -20,7 +20,7 @@ const Wrapper = styled.nav`
 const MenuBox = styled.div`
   display: flex;
   grid-column: 2 / span 3;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 `;
 
