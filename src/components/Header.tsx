@@ -16,6 +16,11 @@ const Wrapper = styled.nav`
   padding: 25px 30px;
 `;
 
+const MenuBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 //identification
 const Validation = styled.div`
   display: grid;
@@ -37,44 +42,46 @@ function Header() {
           <Link to="/">
             <Typography variant="h5">Workout Manager</Typography>
           </Link>
-          <Stack direction="row" spacing={6}>
-            {isLoggedIn ? (
-              <>
-                <Link to="/record">
-                  <Typography gutterBottom color="white">
-                    Record
-                  </Typography>
+          <MenuBox>
+            <Stack direction="row" spacing={6}>
+              {isLoggedIn ? (
+                <>
+                  <Link to="/record">
+                    <Typography gutterBottom color="white">
+                      Record
+                    </Typography>
+                  </Link>
+                  <Link to={`/watch/${data?.me?.username}`}>
+                    <Typography gutterBottom color="white">
+                      Watch
+                    </Typography>
+                  </Link>
+                </>
+              ) : null}
+            </Stack>
+            <Stack direction="row" spacing={4}>
+              {isLoggedIn ? (
+                <Link to="/">
+                  <Button variant="contained" onClick={logOutHanddler}>
+                    Log out
+                  </Button>
                 </Link>
-                <Link to={`/watch/${data?.me?.username}`}>
-                  <Typography gutterBottom color="white">
-                    Watch
-                  </Typography>
-                </Link>
-              </>
-            ) : null}
-          </Stack>
-          <Stack direction="row" spacing={4}>
-            {isLoggedIn ? (
-              <Link to="/">
-                <Button variant="contained" onClick={logOutHanddler}>
-                  Log out
-                </Button>
-              </Link>
-            ) : (
-              <>
-                <Link to="/login">
-                  <Typography gutterBottom color="white">
-                    Log in
-                  </Typography>
-                </Link>
-                <Link to="/signup">
-                  <Typography gutterBottom color="white">
-                    Sign up
-                  </Typography>
-                </Link>
-              </>
-            )}
-          </Stack>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <Typography gutterBottom color="white">
+                      Log in
+                    </Typography>
+                  </Link>
+                  <Link to="/signup">
+                    <Typography gutterBottom color="white">
+                      Sign up
+                    </Typography>
+                  </Link>
+                </>
+              )}
+            </Stack>
+          </MenuBox>
         </Wrapper>
       </Toolbar>
     </AppBar>
