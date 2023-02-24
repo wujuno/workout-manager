@@ -19,6 +19,7 @@ const Wrapper = styled.nav`
 const MenuBox = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
 `;
 
 //identification
