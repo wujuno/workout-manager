@@ -15,9 +15,6 @@ const Wrapper = styled.nav`
   grid-template-columns: repeat(3, 1fr);
   padding: 25px 30px;
 `;
-//logo
-
-//items
 
 const Item = styled.li`
   display: grid;
@@ -47,7 +44,7 @@ function Header() {
           </Link>
           <Stack direction="row" spacing={6}>
             {isLoggedIn ? (
-              <Item>
+              <>
                 <Link to="/record">
                   <Typography gutterBottom variant="h6" color="white">
                     Record
@@ -58,7 +55,7 @@ function Header() {
                     Watch
                   </Typography>
                 </Link>
-              </Item>
+              </>
             ) : null}
           </Stack>
           <Validation>
