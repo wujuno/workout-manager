@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { loggedInVar, logUserOut } from "../apollo";
 import useUser from "../hooks/useUser";
 import Button from "@mui/material/Button";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -14,14 +14,11 @@ const Wrapper = styled.nav`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 25px 30px;
-  box-shadow: ${(props) => props.theme.headerShadow};
 `;
 //logo
 
 //items
-const Items = styled.ul`
-  grid-column: 2 / span 2;
-`;
+
 const Item = styled.li`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -48,18 +45,22 @@ function Header() {
           <Link to="/">
             <Typography variant="h5">Workout Manager</Typography>
           </Link>
-          <Items>
+          <Stack direction="row" spacing={2}>
             {isLoggedIn ? (
               <Item>
                 <Link to="/record">
-                  <Typography color="white">Record</Typography>
+                  <Typography gutterBottom color="white">
+                    Record
+                  </Typography>
                 </Link>
                 <Link to={`/watch/${data?.me?.username}`}>
-                  <Typography color="white">Watch</Typography>
+                  <Typography gutterBottom color="white">
+                    Watch
+                  </Typography>
                 </Link>
               </Item>
             ) : null}
-          </Items>
+          </Stack>
           <Validation>
             {isLoggedIn ? (
               <Link to="/">
@@ -70,10 +71,14 @@ function Header() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="outlined">Log in</Button>
+                  <Typography gutterBottom color="white">
+                    Log in
+                  </Typography>
                 </Link>
                 <Link to="/signup">
-                  <Button variant="contained">Sign up</Button>
+                  <Typography gutterBottom color="white">
+                    Sign up
+                  </Typography>
                 </Link>
               </>
             )}
