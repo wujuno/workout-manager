@@ -12,7 +12,7 @@ import "@fontsource/roboto/700.css";
 
 const Wrapper = styled.nav`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 25px 30px;
 `;
 //logo
@@ -45,16 +45,16 @@ function Header() {
           <Link to="/">
             <Typography variant="h5">Workout Manager</Typography>
           </Link>
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={6}>
             {isLoggedIn ? (
               <Item>
                 <Link to="/record">
-                  <Typography gutterBottom color="white">
+                  <Typography gutterBottom variant="h6" color="white">
                     Record
                   </Typography>
                 </Link>
                 <Link to={`/watch/${data?.me?.username}`}>
-                  <Typography gutterBottom color="white">
+                  <Typography gutterBottom variant="h6" color="white">
                     Watch
                   </Typography>
                 </Link>
@@ -71,12 +71,12 @@ function Header() {
             ) : (
               <>
                 <Link to="/login">
-                  <Typography gutterBottom color="white">
+                  <Typography gutterBottom variant="h6" color="white">
                     Log in
                   </Typography>
                 </Link>
                 <Link to="/signup">
-                  <Typography gutterBottom color="white">
+                  <Typography gutterBottom variant="h6" color="white">
                     Sign up
                   </Typography>
                 </Link>
