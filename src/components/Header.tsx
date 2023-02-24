@@ -16,15 +16,10 @@ const Wrapper = styled.nav`
   padding: 25px 30px;
 `;
 
-const Item = styled.li`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-column-gap: 1rem;
-`;
 //identification
 const Validation = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(2, 100px);
   grid-gap: 1rem;
   text-align: center;
 `;
@@ -46,19 +41,19 @@ function Header() {
             {isLoggedIn ? (
               <>
                 <Link to="/record">
-                  <Typography gutterBottom variant="h6" color="white">
+                  <Typography gutterBottom color="white">
                     Record
                   </Typography>
                 </Link>
                 <Link to={`/watch/${data?.me?.username}`}>
-                  <Typography gutterBottom variant="h6" color="white">
+                  <Typography gutterBottom color="white">
                     Watch
                   </Typography>
                 </Link>
               </>
             ) : null}
           </Stack>
-          <Validation>
+          <Stack direction="row" spacing={4}>
             {isLoggedIn ? (
               <Link to="/">
                 <Button variant="contained" onClick={logOutHanddler}>
@@ -68,18 +63,18 @@ function Header() {
             ) : (
               <>
                 <Link to="/login">
-                  <Typography gutterBottom variant="h6" color="white">
+                  <Typography gutterBottom color="white">
                     Log in
                   </Typography>
                 </Link>
                 <Link to="/signup">
-                  <Typography gutterBottom variant="h6" color="white">
+                  <Typography gutterBottom color="white">
                     Sign up
                   </Typography>
                 </Link>
               </>
             )}
-          </Validation>
+          </Stack>
         </Wrapper>
       </Toolbar>
     </AppBar>
