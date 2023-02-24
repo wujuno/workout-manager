@@ -11,6 +11,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 const Wrapper = styled.nav`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 25px 30px;
