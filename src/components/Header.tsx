@@ -21,6 +21,7 @@ const MenuBox = styled.div`
   display: flex;
   grid-column: 2 / span 3;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 `;
 
