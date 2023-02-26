@@ -14,10 +14,7 @@ const HomeBaseBox = styled(BaseBox)`
   box-shadow: ${(props) => props.theme.headerShadow};
   border-radius: 4px;
 `;
-const TopBox = styled(HomeBaseBox)`
-  font-size: 25px;
-  font-weight: 600;
-`;
+
 const MiddleBox = styled(HomeBaseBox)`
   margin-top: 10px;
   span {
@@ -61,17 +58,6 @@ const ListBox = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 20px;
   text-align: center;
-`;
-const Nothing = styled.div`
-  margin-top: 15px;
-`;
-const Button = styled.span`
-  background-color: ${(props) => props.theme.accentColor};
-  border-radius: 4px;
-  padding: 4px 15px;
-  color: white;
-  font-weight: 600;
-  box-shadow: ${(props) => props.theme.headerShadow};
 `;
 
 function Home() {
@@ -117,15 +103,15 @@ function Home() {
           </MiddleBox>
         </div>
       ) : (
-        <TopBox>
-          <span>안녕하세요 😃</span>
-          <p>로그인 하여 Workout Manager를 즐겨보세요.</p>
-          <Nothing>
-            <Link to="/login">
-              <Button>Log in</Button>
-            </Link>
-          </Nothing>
-        </TopBox>
+        <>
+          <Link to="/login">
+            <Typography variant="h4">
+              안녕하세요 😃
+              <br />
+              로그인 하여 Workout Manager를 즐겨보세요.
+            </Typography>
+          </Link>
+        </>
       )}
     </SLayout>
   );

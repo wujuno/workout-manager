@@ -25,14 +25,6 @@ const MenuBox = styled.div`
   width: 100%;
 `;
 
-//identification
-const Validation = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-gap: 1rem;
-  text-align: center;
-`;
-
 function Header() {
   const { data } = useUser();
   const isLoggedIn = useReactiveVar(loggedInVar);
