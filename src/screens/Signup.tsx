@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 import FormError from "../components/auth/FormError";
 import { gql, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Button, Divider, TextField, Typography } from "@mui/material";
 
 interface ISignUpF {
   username: string;
@@ -85,13 +85,20 @@ function SignUp() {
         <title>SignUp | WM</title>
       </Helmet>
       <TopBox>
-        <Typography variant="h6" align="center">
+        <Typography variant="h5" align="center">
           Workout Manager
+        </Typography>
+        <Typography sx={{ mt: 2 }} variant="h6" align="center">
+          가입하기
         </Typography>
         <FormBox>
           <form onSubmit={handleSubmit(onvalid)}>
-            <Input
-              placeholder="Username"
+            <TextField
+              sx={{ mb: 2 }}
+              id="username"
+              variant="outlined"
+              fullWidth
+              label="Username"
               type="text"
               onFocus={clearLoginError}
               {...register("username", {
@@ -107,17 +114,24 @@ function SignUp() {
               })}
             />
             <FormError message={formState?.errors?.username?.message} />
-            <Input
-              placeholder="Email"
-              type="text"
+            <TextField
+              sx={{ mb: 2 }}
+              id="email"
+              variant="outlined"
+              fullWidth
+              label="Email"
+              type="email"
               onFocus={clearLoginError}
               {...register("email", {
                 required: "Email을 입력해주세요.",
               })}
             />
             <FormError message={formState?.errors?.email?.message} />
-            <Input
-              placeholder="Password"
+            <TextField
+              id="password"
+              variant="outlined"
+              fullWidth
+              label="Password"
               type="password"
               onFocus={clearLoginError}
               {...register("password", {
@@ -133,15 +147,20 @@ function SignUp() {
               })}
             />
             <FormError message={formState?.errors?.password?.message} />
-            <SubmitBtn
+            <Button
+              sx={{ mt: 3 }}
+              variant="contained"
+              fullWidth
               type="submit"
               value="Sign Up"
               disabled={!formState.isValid || loading}
-            />
+            >
+              Sign up
+            </Button>
             <FormError message={formState?.errors?.result?.message} />
           </form>
         </FormBox>
-
+        <Divider />
         <BottomBox cta="Have an account?" link="/login" linkText="Log in" />
       </TopBox>
     </SLayout>
