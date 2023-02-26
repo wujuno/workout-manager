@@ -14,7 +14,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Grid, Stack, TextField } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -144,8 +144,8 @@ function Record() {
       </Helmet>
       <RecordWrapper>
         <form onSubmit={handleSubmit(onvalid)}>
-          <RecordBoxes>
-            <DateBox>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
               <TextField
                 type="date"
                 variant="outlined"
@@ -153,8 +153,14 @@ function Record() {
                 fullWidth
                 {...register("date", { required: true })}
               ></TextField>
-            </DateBox>
-          </RecordBoxes>
+            </Grid>
+          </Grid>
+          <Grid item xs={6}>
+            <Button variant="contained" type="submit" fullWidth>
+              등록
+            </Button>
+          </Grid>
+
           <RecordBoxes>
             <Stack direction="column" spacing={1}>
               {bigPartsArr.map((part) => (
@@ -216,9 +222,6 @@ function Record() {
               />
             ))}
           </CountingWrapper>
-          <Button variant="contained" type="submit" fullWidth>
-            등록
-          </Button>
         </form>
       </RecordWrapper>
     </SLayout>
