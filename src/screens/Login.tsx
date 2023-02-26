@@ -3,18 +3,13 @@ import { useForm } from "react-hook-form";
 import { logUserIn } from "../apollo";
 import { useLocation, useNavigate } from "react-router-dom";
 import SLayout from "../components/Layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import TopBox from "../components/auth/TopBox";
 import FormBox from "../components/auth/Formbox";
-import Input from "../components/auth/Input";
-import SubmitBtn from "../components/auth/SubmitBtn";
-import Separator from "../components/auth/Separator";
 import BottomBox from "../components/auth/BottomBox";
 import FormError from "../components/auth/FormError";
 import { Helmet } from "react-helmet-async";
 import { gql, useMutation } from "@apollo/client";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Divider, TextField, Typography } from "@mui/material";
 
 const GithubLogin = styled.div`
   display: flex;
@@ -110,7 +105,7 @@ function LogIn() {
         <title>Login | WM</title>
       </Helmet>
       <TopBox>
-        <Typography variant="h6" align="center">
+        <Typography variant="h5" align="center">
           Workout Manager
         </Typography>
         <FormBox>
@@ -171,11 +166,7 @@ function LogIn() {
             <Notification>{location?.state?.message}</Notification>
           </form>
         </FormBox>
-        <Separator />
-        <GithubLogin>
-          <FontAwesomeIcon icon={faGithub} />
-          <span>Log in with Github</span>
-        </GithubLogin>
+        <Divider />
         <BottomBox
           cta="Don't have an account?"
           link="/signup"

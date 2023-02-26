@@ -4,7 +4,7 @@ import { BaseBox } from "../shared";
 
 const SBottomBox = styled(BaseBox)`
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 15px;
   padding: 20px 0px;
   text-align: center;
   a {
