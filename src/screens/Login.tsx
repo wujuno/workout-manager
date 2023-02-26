@@ -14,7 +14,7 @@ import BottomBox from "../components/auth/BottomBox";
 import FormError from "../components/auth/FormError";
 import { Helmet } from "react-helmet-async";
 import { gql, useMutation } from "@apollo/client";
-import { Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 
 const GithubLogin = styled.div`
   display: flex;
@@ -115,8 +115,13 @@ function LogIn() {
         </Typography>
         <FormBox>
           <form onSubmit={handleSubmit(onvalid)}>
-            <Input
-              placeholder="Username"
+            <TextField
+              sx={{ mb: 2 }}
+              id="username"
+              label="Username"
+              variant="outlined"
+              fullWidth
+              autoFocus
               type="text"
               onFocus={clearLoginError}
               {...register("username", {
@@ -132,8 +137,11 @@ function LogIn() {
               })}
             />
             <FormError message={formState?.errors?.username?.message} />
-            <Input
-              placeholder="Password"
+            <TextField
+              id="password"
+              variant="outlined"
+              fullWidth
+              label="Password"
               type="password"
               onFocus={clearLoginError}
               {...register("password", {
@@ -149,11 +157,16 @@ function LogIn() {
               })}
             />
             <FormError message={formState?.errors?.password?.message} />
-            <SubmitBtn
+            <Button
+              sx={{ mt: 3 }}
+              variant="contained"
+              fullWidth
               type="submit"
               value={loading ? "Loading..." : "Log in"}
               disabled={!formState.isValid || loading}
-            />
+            >
+              Log in
+            </Button>
             <FormError message={formState?.errors?.result?.message} />
             <Notification>{location?.state?.message}</Notification>
           </form>
