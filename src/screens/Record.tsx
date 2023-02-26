@@ -154,74 +154,75 @@ function Record() {
                 {...register("date", { required: true })}
               ></TextField>
             </Grid>
+            <Grid item xs={6}>
+              <Button variant="contained" type="submit" fullWidth>
+                등록
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Stack direction="column" spacing={1}>
+                {bigPartsArr.map((part) => (
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    key={part.id}
+                    onClick={bigPartHanddler}
+                    aria-valuetext={part.name}
+                  >
+                    {part.name}
+                  </Button>
+                ))}
+              </Stack>
+            </Grid>
+            <Grid item xs={4}>
+              <Stack direction="column">
+                {bigPart === "가슴"
+                  ? Chest.map((list) => (
+                      <List key={list.id} onClick={listHanddler}>
+                        {list.name}
+                      </List>
+                    ))
+                  : bigPart === "등"
+                  ? Back.map((list) => (
+                      <List key={list.id} onClick={listHanddler}>
+                        {list.name}
+                      </List>
+                    ))
+                  : bigPart === "어깨"
+                  ? Shoulder.map((list) => (
+                      <List key={list.id} onClick={listHanddler}>
+                        {list.name}
+                      </List>
+                    ))
+                  : bigPart === "하체"
+                  ? Leg.map((list) => (
+                      <List key={list.id} onClick={listHanddler}>
+                        {list.name}
+                      </List>
+                    ))
+                  : bigPart === "복근"
+                  ? Abs.map((list) => (
+                      <List key={list.id} onClick={listHanddler}>
+                        {list.name}
+                      </List>
+                    ))
+                  : null}
+              </Stack>
+            </Grid>
+            <Grid item xs={4}>
+              <CountingWrapper>
+                {countTitleArr.map((title) => (
+                  <TextField
+                    label={title.name}
+                    id={title.name}
+                    type="number"
+                    sx={{ m: 1, width: "100px" }}
+                    fullWidth
+                  />
+                ))}
+              </CountingWrapper>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Button variant="contained" type="submit" fullWidth>
-              등록
-            </Button>
-          </Grid>
-
-          <RecordBoxes>
-            <Stack direction="column" spacing={1}>
-              {bigPartsArr.map((part) => (
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  key={part.id}
-                  onClick={bigPartHanddler}
-                  aria-valuetext={part.name}
-                >
-                  {part.name}
-                </Button>
-              ))}
-            </Stack>
-          </RecordBoxes>
-          <RecordBoxes>
-            <Stack direction="column">
-              {bigPart === "가슴"
-                ? Chest.map((list) => (
-                    <List key={list.id} onClick={listHanddler}>
-                      {list.name}
-                    </List>
-                  ))
-                : bigPart === "등"
-                ? Back.map((list) => (
-                    <List key={list.id} onClick={listHanddler}>
-                      {list.name}
-                    </List>
-                  ))
-                : bigPart === "어깨"
-                ? Shoulder.map((list) => (
-                    <List key={list.id} onClick={listHanddler}>
-                      {list.name}
-                    </List>
-                  ))
-                : bigPart === "하체"
-                ? Leg.map((list) => (
-                    <List key={list.id} onClick={listHanddler}>
-                      {list.name}
-                    </List>
-                  ))
-                : bigPart === "복근"
-                ? Abs.map((list) => (
-                    <List key={list.id} onClick={listHanddler}>
-                      {list.name}
-                    </List>
-                  ))
-                : null}
-            </Stack>
-          </RecordBoxes>
-          <CountingWrapper>
-            {countTitleArr.map((title) => (
-              <TextField
-                label={title.name}
-                id={title.name}
-                type="number"
-                sx={{ m: 1, width: "100px" }}
-                fullWidth
-              />
-            ))}
-          </CountingWrapper>
         </form>
       </RecordWrapper>
     </SLayout>
