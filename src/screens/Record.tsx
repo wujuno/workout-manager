@@ -85,9 +85,9 @@ function Record() {
   const bigPartHanddler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setBigPart(String(event.currentTarget.ariaValueText));
   };
-  const listHanddler = (event: React.MouseEvent) => {
-    setItem(event.currentTarget.innerHTML);
-    console.log(event.currentTarget.innerHTML);
+  const listHanddler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setItem(event.currentTarget.value);
+    console.log(event.currentTarget.value);
   };
   const onCompleted = (data: IData) => {
     const {
@@ -172,6 +172,7 @@ function Record() {
                           fullWidth
                           key={list.id}
                           onClick={listHanddler}
+                          value={list.name}
                         >
                           {list.name}
                         </Button>
