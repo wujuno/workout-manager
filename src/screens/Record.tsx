@@ -168,36 +168,60 @@ function Record() {
                   {bigPart === "가슴"
                     ? Chest.map((list) => (
                         <Button
-                          color={name === list.name ? "success" : "primary"}
                           fullWidth
                           key={list.id}
                           onClick={listHanddler}
                           value={list.name}
+                          color={name === list.name ? "success" : "primary"}
                         >
                           {list.name}
                         </Button>
                       ))
                     : bigPart === "등"
                     ? Back.map((list) => (
-                        <Button fullWidth key={list.id} onClick={listHanddler}>
+                        <Button
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                          value={list.name}
+                          color={name === list.name ? "success" : "primary"}
+                        >
                           {list.name}
                         </Button>
                       ))
                     : bigPart === "어깨"
                     ? Shoulder.map((list) => (
-                        <Button fullWidth key={list.id} onClick={listHanddler}>
+                        <Button
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                          value={list.name}
+                          color={name === list.name ? "success" : "primary"}
+                        >
                           {list.name}
                         </Button>
                       ))
                     : bigPart === "하체"
                     ? Leg.map((list) => (
-                        <Button fullWidth key={list.id} onClick={listHanddler}>
+                        <Button
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                          value={list.name}
+                          color={name === list.name ? "success" : "primary"}
+                        >
                           {list.name}
                         </Button>
                       ))
                     : bigPart === "복근"
                     ? Abs.map((list) => (
-                        <Button fullWidth key={list.id} onClick={listHanddler}>
+                        <Button
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                          value={list.name}
+                          color={name === list.name ? "success" : "primary"}
+                        >
                           {list.name}
                         </Button>
                       ))
