@@ -176,33 +176,59 @@ function Record() {
                 <Stack direction="column">
                   {bigPart === "가슴"
                     ? Chest.map((list) => (
-                        <List key={list.id} onClick={listHanddler}>
+                        <Button
+                          id="chestItem"
+                          color={name === list.name ? "success" : "primary"}
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                        >
                           {list.name}
-                        </List>
+                        </Button>
                       ))
                     : bigPart === "등"
                     ? Back.map((list) => (
-                        <List key={list.id} onClick={listHanddler}>
+                        <Button
+                          id="backItem"
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                        >
                           {list.name}
-                        </List>
+                        </Button>
                       ))
                     : bigPart === "어깨"
                     ? Shoulder.map((list) => (
-                        <List key={list.id} onClick={listHanddler}>
+                        <Button
+                          id="shoulderItem"
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                        >
                           {list.name}
-                        </List>
+                        </Button>
                       ))
                     : bigPart === "하체"
                     ? Leg.map((list) => (
-                        <List key={list.id} onClick={listHanddler}>
+                        <Button
+                          id="legsItem"
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                        >
                           {list.name}
-                        </List>
+                        </Button>
                       ))
                     : bigPart === "복근"
                     ? Abs.map((list) => (
-                        <List key={list.id} onClick={listHanddler}>
+                        <Button
+                          id="absItem"
+                          fullWidth
+                          key={list.id}
+                          onClick={listHanddler}
+                        >
                           {list.name}
-                        </List>
+                        </Button>
                       ))
                     : null}
                 </Stack>
