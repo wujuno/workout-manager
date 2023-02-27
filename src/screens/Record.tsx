@@ -178,6 +178,7 @@ function Record() {
                     ? Chest.map((list) => (
                         <Button
                           id="chestItem"
+                          variant="outlined"
                           color={name === list.name ? "success" : "primary"}
                           fullWidth
                           key={list.id}
