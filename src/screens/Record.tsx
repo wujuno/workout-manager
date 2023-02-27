@@ -87,7 +87,6 @@ function Record() {
   };
   const listHanddler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setItem(event.currentTarget.value);
-    console.log(event.currentTarget.value);
   };
   const onCompleted = (data: IData) => {
     const {
