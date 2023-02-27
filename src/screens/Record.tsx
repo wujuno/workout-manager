@@ -177,52 +177,56 @@ function Record() {
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Stack direction="column">
-                {bigPart === "가슴"
-                  ? Chest.map((list) => (
-                      <List key={list.id} onClick={listHanddler}>
-                        {list.name}
-                      </List>
-                    ))
-                  : bigPart === "등"
-                  ? Back.map((list) => (
-                      <List key={list.id} onClick={listHanddler}>
-                        {list.name}
-                      </List>
-                    ))
-                  : bigPart === "어깨"
-                  ? Shoulder.map((list) => (
-                      <List key={list.id} onClick={listHanddler}>
-                        {list.name}
-                      </List>
-                    ))
-                  : bigPart === "하체"
-                  ? Leg.map((list) => (
-                      <List key={list.id} onClick={listHanddler}>
-                        {list.name}
-                      </List>
-                    ))
-                  : bigPart === "복근"
-                  ? Abs.map((list) => (
-                      <List key={list.id} onClick={listHanddler}>
-                        {list.name}
-                      </List>
-                    ))
-                  : null}
-              </Stack>
+              <Paper elevation={1}>
+                <Stack direction="column">
+                  {bigPart === "가슴"
+                    ? Chest.map((list) => (
+                        <List key={list.id} onClick={listHanddler}>
+                          {list.name}
+                        </List>
+                      ))
+                    : bigPart === "등"
+                    ? Back.map((list) => (
+                        <List key={list.id} onClick={listHanddler}>
+                          {list.name}
+                        </List>
+                      ))
+                    : bigPart === "어깨"
+                    ? Shoulder.map((list) => (
+                        <List key={list.id} onClick={listHanddler}>
+                          {list.name}
+                        </List>
+                      ))
+                    : bigPart === "하체"
+                    ? Leg.map((list) => (
+                        <List key={list.id} onClick={listHanddler}>
+                          {list.name}
+                        </List>
+                      ))
+                    : bigPart === "복근"
+                    ? Abs.map((list) => (
+                        <List key={list.id} onClick={listHanddler}>
+                          {list.name}
+                        </List>
+                      ))
+                    : null}
+                </Stack>
+              </Paper>
             </Grid>
             <Grid item xs={4}>
-              <CountingWrapper>
-                {countTitleArr.map((title) => (
-                  <TextField
-                    label={title.name}
-                    id={title.name}
-                    type="number"
-                    sx={{ m: 1, width: "100px" }}
-                    fullWidth
-                  />
-                ))}
-              </CountingWrapper>
+              <Paper elevation={1}>
+                <CountingWrapper>
+                  {countTitleArr.map((title) => (
+                    <TextField
+                      label={title.name}
+                      id={title.name}
+                      type="number"
+                      sx={{ m: 1, width: "100px" }}
+                      fullWidth
+                    />
+                  ))}
+                </CountingWrapper>
+              </Paper>
             </Grid>
           </Grid>
         </form>
