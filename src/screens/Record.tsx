@@ -155,7 +155,7 @@ function Record() {
               ></TextField>
             </Grid>
             <Grid item xs={6}>
-              <Button variant="contained" type="submit" fullWidth>
+              <Button variant="contained" type="submit" size="large" fullWidth>
                 등록
               </Button>
             </Grid>
