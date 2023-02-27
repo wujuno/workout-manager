@@ -93,10 +93,10 @@ function Record() {
   const [name, setItem] = useState("");
   const bigPartHanddler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setBigPart(String(event.currentTarget.ariaValueText));
-    console.log(bigPart);
   };
   const listHanddler = (event: React.MouseEvent) => {
     setItem(event.currentTarget.innerHTML);
+    console.log(event.currentTarget.innerHTML);
   };
   const onCompleted = (data: IData) => {
     const {
@@ -178,7 +178,6 @@ function Record() {
                     ? Chest.map((list) => (
                         <Button
                           id="chestItem"
-                          variant="outlined"
                           color={name === list.name ? "success" : "primary"}
                           fullWidth
                           key={list.id}
