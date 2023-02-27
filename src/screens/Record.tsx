@@ -180,7 +180,10 @@ function Record() {
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper elevation={1}>
+              <Paper
+                elevation={1}
+                sx={{ p: 2, height: 220, overflowY: "auto" }}
+              >
                 <Stack direction="column">
                   {bigPart === "가슴"
                     ? Chest.map((list) => (
@@ -217,7 +220,10 @@ function Record() {
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper elevation={1}>
+              <Paper
+                elevation={1}
+                sx={{ p: 2, height: 220, overflowY: "auto" }}
+              >
                 <CountingWrapper>
                   {countTitleArr.map((title) => (
                     <TextField
