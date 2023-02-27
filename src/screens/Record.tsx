@@ -14,7 +14,7 @@ import {
   Leg,
   Shoulder,
 } from "../components/RecordParts";
-import { Button, Grid, Stack, TextField } from "@mui/material";
+import { Button, Grid, Paper, Stack, TextField } from "@mui/material";
 
 const RecordWrapper = styled(BaseBox)`
   width: 1000px;
@@ -160,19 +160,21 @@ function Record() {
               </Button>
             </Grid>
             <Grid item xs={4}>
-              <Stack direction="column" spacing={1}>
-                {bigPartsArr.map((part) => (
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    key={part.id}
-                    onClick={bigPartHanddler}
-                    aria-valuetext={part.name}
-                  >
-                    {part.name}
-                  </Button>
-                ))}
-              </Stack>
+              <Paper elevation={1}>
+                <Stack direction="column" spacing={1}>
+                  {bigPartsArr.map((part) => (
+                    <Button
+                      variant="outlined"
+                      fullWidth
+                      key={part.id}
+                      onClick={bigPartHanddler}
+                      aria-valuetext={part.name}
+                    >
+                      {part.name}
+                    </Button>
+                  ))}
+                </Stack>
+              </Paper>
             </Grid>
             <Grid item xs={4}>
               <Stack direction="column">
