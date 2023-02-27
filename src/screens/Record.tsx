@@ -160,7 +160,10 @@ function Record() {
               </Button>
             </Grid>
             <Grid item xs={4}>
-              <Paper elevation={1}>
+              <Paper
+                elevation={1}
+                sx={{ p: 2, height: 220, overflowY: "auto" }}
+              >
                 <Stack direction="column" spacing={1}>
                   {bigPartsArr.map((part) => (
                     <Button
