@@ -24,15 +24,6 @@ const RecordWrapper = styled(BaseBox)`
     justify-content: center;
   }
 `;
-const RecordBoxes = styled(BaseBox)`
-  margin-left: 10px;
-  padding: 15px 20px;
-  height: 270px;
-  overflow-y: auto;
-`;
-const DateBox = styled.div`
-  width: 100%;
-`;
 
 const List = styled.li`
   padding: 7px 6px;
@@ -145,7 +136,8 @@ function Record() {
       <RecordWrapper>
         <form onSubmit={handleSubmit(onvalid)}>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
               <TextField
                 type="date"
                 variant="outlined"
@@ -154,11 +146,8 @@ function Record() {
                 {...register("date", { required: true })}
               ></TextField>
             </Grid>
-            <Grid item xs={6}>
-              <Button variant="contained" type="submit" size="large" fullWidth>
-                등록
-              </Button>
-            </Grid>
+            <Grid item xs={4}></Grid>
+
             <Grid item xs={4}>
               <Paper
                 elevation={1}
@@ -237,6 +226,13 @@ function Record() {
                 </CountingWrapper>
               </Paper>
             </Grid>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
+              <Button variant="contained" type="submit" size="large" fullWidth>
+                등록
+              </Button>
+            </Grid>
+            <Grid item xs={4}></Grid>
           </Grid>
         </form>
       </RecordWrapper>
