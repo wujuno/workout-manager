@@ -10,7 +10,6 @@ function Root() {
       <ApolloProvider client={client}>
         <HelmetProvider>
           <GlobalStyles />
-
           <Outlet />
         </HelmetProvider>
       </ApolloProvider>

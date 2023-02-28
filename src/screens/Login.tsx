@@ -11,16 +11,6 @@ import { Helmet } from "react-helmet-async";
 import { gql, useMutation } from "@apollo/client";
 import { Button, Divider, TextField, Typography } from "@mui/material";
 
-const GithubLogin = styled.div`
-  display: flex;
-  justify-content: center;
-
-  span {
-    margin-left: 10px;
-    font-weight: 600;
-  }
-`;
-
 interface ILoginF {
   username: string;
   password: string;

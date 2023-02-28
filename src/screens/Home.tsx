@@ -74,7 +74,6 @@ function Home() {
             <Typography variant="h4">
               안녕하세요, {data?.me?.username}님.{" "}
             </Typography>
-            <Typography variant="h6">오늘 컨디션은 어떤가요?</Typography>
             <form>
               <select>
                 <option value="good">good</option>
