@@ -7,6 +7,7 @@ import { loggedInVar } from "../apollo";
 import SLayout from "../components/Layout";
 import { BaseBox } from "../components/shared";
 import useUser from "../hooks/useUser";
+import LogIn from "./Login";
 
 const HomeBaseBox = styled(BaseBox)`
   width: 600px;
@@ -63,56 +64,47 @@ const ListBox = styled.div`
 function Home() {
   const isLoggedIn = useReactiveVar(loggedInVar);
   const { data } = useUser();
-  return (
+  return isLoggedIn ? (
     <SLayout>
       <Helmet>
         <title>Home | WM</title>
       </Helmet>
-      {isLoggedIn ? (
-        <div>
-          <Paper elevation={2} sx={{ p: 3 }}>
-            <Typography variant="h4">
-              안녕하세요, {data?.me?.username}님.{" "}
-            </Typography>
-            <form>
-              <select>
-                <option value="good">good</option>
-                <option value="bad">bad</option>
-              </select>
-            </form>
-          </Paper>
-          <MiddleBox>
-            <span>{data?.me?.username}님의 최근 운동기록입니다.</span>
-            <HistoryWrapper>
-              {data?.me?.records?.map((record) => (
-                <Link to={`watch/${data?.me?.username}/sdate/${record?.date}`}>
-                  <HistoryBox>
-                    <DateBox>
-                      <span>{record?.date}</span>
-                    </DateBox>
-                    <ListBox>
-                      {record?.items?.map((item) => (
-                        <span key={item?.id}>{item.name}</span>
-                      ))}
-                    </ListBox>
-                  </HistoryBox>
-                </Link>
-              ))}
-            </HistoryWrapper>
-          </MiddleBox>
-        </div>
-      ) : (
-        <>
-          <Link to="/login">
-            <Typography variant="h4">
-              안녕하세요 😃
-              <br />
-              로그인 하여 Workout Manager를 즐겨보세요.
-            </Typography>
-          </Link>
-        </>
-      )}
+
+      <div>
+        <Paper elevation={2} sx={{ p: 3 }}>
+          <Typography variant="h4">
+            안녕하세요, {data?.me?.username}님.{" "}
+          </Typography>
+          <form>
+            <select>
+              <option value="good">good</option>
+              <option value="bad">bad</option>
+            </select>
+          </form>
+        </Paper>
+        <MiddleBox>
+          <span>{data?.me?.username}님의 최근 운동기록입니다.</span>
+          <HistoryWrapper>
+            {data?.me?.records?.map((record) => (
+              <Link to={`watch/${data?.me?.username}/sdate/${record?.date}`}>
+                <HistoryBox>
+                  <DateBox>
+                    <span>{record?.date}</span>
+                  </DateBox>
+                  <ListBox>
+                    {record?.items?.map((item) => (
+                      <span key={item?.id}>{item.name}</span>
+                    ))}
+                  </ListBox>
+                </HistoryBox>
+              </Link>
+            ))}
+          </HistoryWrapper>
+        </MiddleBox>
+      </div>
     </SLayout>
+  ) : (
+    <LogIn />
   );
 }
 
