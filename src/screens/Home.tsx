@@ -75,12 +75,6 @@ function Home() {
           <Typography variant="h4">
             안녕하세요, {data?.me?.username}님.{" "}
           </Typography>
-          <form>
-            <select>
-              <option value="good">good</option>
-              <option value="bad">bad</option>
-            </select>
-          </form>
         </Paper>
         <MiddleBox>
           <span>{data?.me?.username}님의 최근 운동기록입니다.</span>
