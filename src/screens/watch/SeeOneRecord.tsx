@@ -45,6 +45,9 @@ function SeeOneRecord() {
       window.location.reload();
     }
   };
+  const onRowBlur = (event: React.MouseEvent<HTMLTableCellElement>) => {
+    console.log(event);
+  };
   const [deleteItem, { loading }] = useMutation(DELETEITEM_MUTATION, {
     onCompleted,
   });
@@ -80,7 +83,11 @@ function SeeOneRecord() {
               {data.seeRecord.items.map((item) => (
                 <TableRow
                   key={item.name}
+                  data-key={item.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  onBlur={() => {
+                    console.log(`${item.id}`);
+                  }}
                 >
                   <TableCell component="th" scope="row">
                     {item.name}
