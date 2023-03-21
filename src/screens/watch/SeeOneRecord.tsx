@@ -45,9 +45,7 @@ function SeeOneRecord() {
       window.location.reload();
     }
   };
-  const onRowBlur = (event: React.MouseEvent<HTMLTableCellElement>) => {
-    console.log(event);
-  };
+
   const [deleteItem, { loading }] = useMutation(DELETEITEM_MUTATION, {
     onCompleted,
   });
