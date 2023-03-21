@@ -4,13 +4,6 @@ import styled from "styled-components";
 import { SLink } from "../../components/shared";
 import useSeeRecord from "../../hooks/useSeeRecord";
 import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  DropResult,
-} from "react-beautiful-dnd";
-import { useState } from "react";
-import {
   Paper,
   Table,
   TableBody,
@@ -24,27 +17,7 @@ const ListWrapper = styled.div`
   margin-top: 30px;
   padding: 0px 30px;
 `;
-const ListBoxHeader = styled.div`
-  padding: 10px 0px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  span:first-child {
-    grid-column: 1 / 3;
-  }
-`;
-const ListBox = styled(ListBoxHeader)`
-  hover {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    span:last-child {
-      display: contents;
-    }
-  }
-  span:last-child {
-    display: none;
-    cursor: pointer;
-  }
-`;
+
 interface IData {
   deleteItem: {
     ok: boolean;
@@ -89,10 +62,6 @@ function SeeOneRecord() {
       },
     });
   };
-  const originOrder = data?.seeRecord?.items;
-  console.log(originOrder);
-  const [order, setOrder] = useState(originOrder);
-  const onDragEnd = ({ destination, source }: DropResult) => {};
   return (
     <ListWrapper>
       {data?.seeRecord ? (
@@ -101,10 +70,10 @@ function SeeOneRecord() {
             <TableHead>
               <TableRow>
                 <TableCell>종목 이름</TableCell>
-                <TableCell align="right">세트 수(회)</TableCell>
-                <TableCell align="right">회수 (회)</TableCell>
-                <TableCell align="right">무게 (kg)</TableCell>
-                <TableCell align="right">쉬는 시간 (초)</TableCell>
+                <TableCell align="center">세트 수(회)</TableCell>
+                <TableCell align="center">회수 (회)</TableCell>
+                <TableCell align="center">무게 (kg)</TableCell>
+                <TableCell align="center">쉬는 시간 (초)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -116,10 +85,10 @@ function SeeOneRecord() {
                   <TableCell component="th" scope="row">
                     {item.name}
                   </TableCell>
-                  <TableCell align="right">{item.setTimes}</TableCell>
-                  <TableCell align="right">{item.times}</TableCell>
-                  <TableCell align="right">{item.weight}</TableCell>
-                  <TableCell align="right">{item.restTime}</TableCell>
+                  <TableCell align="center">{item.setTimes}</TableCell>
+                  <TableCell align="center">{item.times}</TableCell>
+                  <TableCell align="center">{item.weight}</TableCell>
+                  <TableCell align="center">{item.restTime}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
