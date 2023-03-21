@@ -6,17 +6,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   margin-top: 20px;
-  width: 100%;
+  width: 300px;
   padding: 0px 10px;
-`;
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Input = styled.input`
-  margin-top: 10px;
-  width: 200px;
-  font-size: 30px;
 `;
 
 function Date() {
@@ -30,17 +21,12 @@ function Date() {
   }, [watch("date")]);
   return (
     <Wrapper>
-      <Container>
-        <Typography variant="body1">
-          기록을 확인하고 싶은 날짜를 선택해주세요.
-        </Typography>
-        <TextField
-          type="date"
-          variant="outlined"
-          {...register("date")}
-        ></TextField>
-        <Outlet />
-      </Container>
+      <TextField
+        type="date"
+        variant="outlined"
+        {...register("date")}
+      ></TextField>
+      <Outlet />
     </Wrapper>
   );
 }
