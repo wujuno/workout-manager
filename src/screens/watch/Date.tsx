@@ -6,8 +6,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   margin-top: 20px;
-  width: 300px;
+  width: 900px;
   padding: 0px 10px;
+`;
+const DateBox = styled.div`
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Date() {
@@ -21,11 +27,14 @@ function Date() {
   }, [watch("date")]);
   return (
     <Wrapper>
-      <TextField
-        type="date"
-        variant="outlined"
-        {...register("date")}
-      ></TextField>
+      <DateBox>
+        <TextField
+          type="date"
+          variant="outlined"
+          fullWidth
+          {...register("date")}
+        ></TextField>
+      </DateBox>
       <Outlet />
     </Wrapper>
   );

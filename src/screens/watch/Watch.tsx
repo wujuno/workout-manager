@@ -15,6 +15,7 @@ const Wrapper = styled(BaseBox)`
 
 const WatchHeader = styled(Paper)`
   display: flex;
+  padding: 10px 0;
   width: 100%;
   justify-content: space-around;
 `;
