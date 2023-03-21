@@ -240,6 +240,11 @@ function Record() {
                       id={title.name}
                       type="number"
                       sx={{ m: 1, width: "100px" }}
+                      onKeyPress={(event) => {
+                        if (event.charCode < 48) {
+                          event.preventDefault();
+                        }
+                      }}
                       fullWidth
                     />
                   ))}
