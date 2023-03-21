@@ -10,6 +10,15 @@ import {
   DropResult,
 } from "react-beautiful-dnd";
 import { useState } from "react";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 const ListWrapper = styled.div`
   margin-top: 30px;
@@ -87,48 +96,35 @@ function SeeOneRecord() {
   return (
     <ListWrapper>
       {data?.seeRecord ? (
-        <div>
-          <ListBoxHeader>
-            <span>이름</span>
-            <span>세트수(회)</span>
-            <span>횟수(회)</span>
-            <span>무게(kg)</span>
-            <span>쉬는시간(초)</span>
-          </ListBoxHeader>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="one">
-              {(magic) => (
-                <div ref={magic.innerRef} {...magic.droppableProps}>
-                  {data?.seeRecord?.items.map((item) => (
-                    <Draggable
-                      draggableId={item.name}
-                      index={item.id}
-                      key={item.id}
-                    >
-                      {(magic) => (
-                        <ListBox
-                          data-key={item.id}
-                          key={item.id}
-                          ref={magic.innerRef}
-                          {...magic.dragHandleProps}
-                          {...magic.draggableProps}
-                        >
-                          <span>{item.name}</span>
-                          <span>{item.setTimes}</span>
-                          <span>{item.times}</span>
-                          <span>{item.weight}</span>
-                          <span>{item.restTime}</span>
-                          <span onClick={deleteHanddler}>❌</span>
-                        </ListBox>
-                      )}
-                    </Draggable>
-                  ))}
-                  {magic.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </div>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>종목 이름</TableCell>
+                <TableCell align="right">세트 수(회)</TableCell>
+                <TableCell align="right">회수 (회)</TableCell>
+                <TableCell align="right">무게 (kg)</TableCell>
+                <TableCell align="right">쉬는 시간 (초)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data.seeRecord.items.map((item) => (
+                <TableRow
+                  key={item.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {item.name}
+                  </TableCell>
+                  <TableCell align="right">{item.setTimes}</TableCell>
+                  <TableCell align="right">{item.times}</TableCell>
+                  <TableCell align="right">{item.weight}</TableCell>
+                  <TableCell align="right">{item.restTime}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       ) : (
         <span>
           기록이 없습니다.{" "}
