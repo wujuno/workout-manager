@@ -85,7 +85,7 @@ function SeeOneRecord() {
                   key={item.name}
                   data-key={item.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  onBlur={() => {
+                  onClick={() => {
                     console.log(`${item.id}`);
                   }}
                 >
