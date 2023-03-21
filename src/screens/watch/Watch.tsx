@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
@@ -13,13 +13,9 @@ const Wrapper = styled(BaseBox)`
   align-items: center;
 `;
 
-const WatchHeader = styled(BaseBox)`
-  padding: 15px;
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 4rem;
-  text-align: center;
+const WatchHeader = styled(Paper)`
+  display: flex;
+  justify-content: space-around;
 `;
 
 function Watch() {
