@@ -107,6 +107,7 @@ function Record() {
       return;
     }
     const { date, times, setTimes, weight, restTime } = getValues();
+    console.log(getValues);
     createRecord({
       variables: {
         date,
