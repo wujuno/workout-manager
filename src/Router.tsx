@@ -8,6 +8,7 @@ import SignUp from "./screens/Signup";
 import Watch from "./screens/watch/Watch";
 import Date from "./screens/watch/Date";
 import SeeOneRecord from "./screens/watch/SeeOneRecord";
+import AllNames from "./screens/watch/AllNames";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 element: <SeeOneRecord />,
               },
             ],
+          },
+          {
+            path: "allnames",
+            element: <AllNames />,
           },
         ],
       },

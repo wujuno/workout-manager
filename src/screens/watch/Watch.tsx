@@ -31,9 +31,11 @@ function Watch() {
           <Link to="sdate">
             <Button variant="outlined">특정날짜 기록</Button>
           </Link>
-          <Button variant="outlined" disabled>
-            <Link to="sdate33">준비중</Link>
-          </Button>
+          <Link to="allnames">
+            <Button variant="outlined" disabled>
+              운동 종목별 기록
+            </Button>
+          </Link>
           <Button variant="outlined" disabled>
             <Link to="sdate33">준비중</Link>
           </Button>
