@@ -245,6 +245,7 @@ function Record() {
                           event.preventDefault();
                         }
                       }}
+                      {...register(`${title.name}`, { required: true })}
                       fullWidth
                     />
                   ))}
