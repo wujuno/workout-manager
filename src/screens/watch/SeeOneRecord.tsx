@@ -2,7 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { SLink } from "../../components/shared";
-import useSeeRecord from "../../hooks/useSeeRecord";
+
 import {
   Paper,
   Table,
@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { useSeeRecord } from "../../hooks/useSeeRecord";
 
 const ListWrapper = styled.div`
   margin-top: 30px;

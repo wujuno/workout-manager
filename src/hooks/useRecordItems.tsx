@@ -1,10 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
 const SEERECORD_QUERY = gql`
-  query seeRecord($date: String!) {
-    seeRecord(date: $date) {
-      id
-      date
+  query seeRecord {
+    seeRecords {
       items {
         id
         name
@@ -18,9 +16,7 @@ const SEERECORD_QUERY = gql`
 `;
 
 interface useSeeRecordQuery {
-  seeRecord: {
-    id: number;
-    date: string;
+  seeRecords: {
     items: {
       id: number;
       name: string;
@@ -29,14 +25,12 @@ interface useSeeRecordQuery {
       weight: number;
       restTime: number;
     }[];
-  };
+  }[];
 }
 
-export const useSeeRecord = (date: string | undefined) => {
-  const { data } = useQuery<useSeeRecordQuery>(SEERECORD_QUERY, {
-    variables: {
-      date,
-    },
-  });
+function useRecordItems() {
+  const { data } = useQuery<useSeeRecordQuery>(SEERECORD_QUERY);
   return { data };
-};
+}
+
+export default useRecordItems;
