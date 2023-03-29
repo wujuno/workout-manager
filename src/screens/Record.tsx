@@ -246,6 +246,7 @@ function Record() {
                           event.preventDefault();
                         }
                       }}
+                      minRows={0}
                       {...register(`${title.name}`, { required: true })}
                       fullWidth
                     />
