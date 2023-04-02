@@ -12,19 +12,6 @@ interface ExerciseCount {
   count: number;
 }
 
-interface Idata {
-  seeRecords: {
-    items: {
-      id: number;
-      name: string;
-      times: number;
-      setTimes: number;
-      weight: number;
-      restTime: number;
-    }[];
-  }[];
-}
-
 function AllNames() {
   const { data } = useRecordItems();
   const nameArr: string[] | undefined = data?.seeRecords
@@ -50,8 +37,6 @@ function AllNames() {
     (item) => item.count
   );
 
-  console.log(data);
-  console.log(exerciseCounts);
   return (
     <Wrapper>
       <AllExcColumnChart

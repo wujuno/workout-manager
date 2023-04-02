@@ -241,12 +241,12 @@ function Record() {
                       id={title.name}
                       type="number"
                       sx={{ m: 1, width: "100px" }}
-                      onKeyPress={(event) => {
-                        if (event.charCode < 48) {
+                      onKeyDown={(event) => {
+                        if (event.key === "-") {
                           event.preventDefault();
                         }
                       }}
-                      minRows={0}
+                      inputProps={{ min: "0", step: "1" }}
                       {...register(`${title.name}`, { required: true })}
                       fullWidth
                     />
